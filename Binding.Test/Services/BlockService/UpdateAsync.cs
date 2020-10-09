@@ -30,14 +30,13 @@ namespace Binding.Test.Services.BlockService
         [Test]
         public async Task ShouldUpdateBlock()
         {
-            
             // var originalBlock = new Block()
             // {
             //     Type = BlockType.Heading,
             //     Content = "Hello world",
             //     Id = new Guid("1ed89919-95f0-4a0d-8352-f71a39fb32dc")
             // };
-            
+
             // Change to text, change content
             var block = new Block()
             {
@@ -53,7 +52,6 @@ namespace Binding.Test.Services.BlockService
 
             var check = await _context.Blocks.FirstOrDefaultAsync(x => x.Id == block.Id);
             check.Should().Be(block);
-
         }
 
         [Test]
@@ -67,10 +65,25 @@ namespace Binding.Test.Services.BlockService
             };
 
             var blockService = new Binding.Services.BlockService(_context);
-            
-            var updatedBlock = blockService.UpdateAsync(block);
 
-            updatedBlock.Exception.Message.Should().Be("Block not found");
+            // blockService.UpdateAsync(block).Invoking().Should().Throw<Exception>().WithMessage("Block not found");
+
+            // Func<Task> act = async () => { await blockService.UpdateAsync(block); };
+            // await act.Should().ThrowAsync<Exception>();
+            // act.Should().NotBeNull();
+
+            FluentActions.Invoking(async () => await blockService.UpdateAsync(block))
+                .Should().Throw<Exception>()
+                .WithMessage("Block not found");
+
+            // FluentActions.Invoking(() =>
+            // {
+            //     blockService.UpdateAsync(block);
+            // } ).Should().Throw<Exception>().Where(e => e.Message == "Block not found");
+
+            // var updatedBlock = await blockService.UpdateAsync(block);
+            //
+            // updatedBlock.Exception.Message.Should().Be("Block not found");
 
             // await updatedBlock.Awaiting().Should().ThrowAsync<>()
         }

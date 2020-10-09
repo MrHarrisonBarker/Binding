@@ -41,6 +41,18 @@ namespace Binding.Controllers
             return Ok(block);
         }
 
+        [HttpPut]
+        public async Task<ActionResult<Block>> Update([FromBody] Block block)
+        {
+            var updatedBlock = await _blockService.UpdateAsync(block);
+            if (updatedBlock != null)
+            {
+                return Ok(updatedBlock);
+            }
+
+            return BadRequest();
+        }
+
         [HttpDelete("{id}")]
         public async Task<ActionResult<bool>> Delete(Guid id)
         {

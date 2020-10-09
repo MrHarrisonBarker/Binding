@@ -28,6 +28,32 @@ namespace Binding.Controllers
 
             return Ok(page);
         }
+        
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<bool>> Delete(Guid id)
+        {
+            var hasDeleted = await _pageService.DeleteAsync(id);
+            if (hasDeleted)
+            {
+                return Ok(true);
+            }
+            else
+            {
+                return BadRequest(false);
+            }
+        }
+        
+        [HttpPut]
+        public async Task<ActionResult<Page>> Update([FromBody] Page page)
+        {
+            var updatedPage = await _pageService.UpdateAsync(page);
+            if (updatedPage != null)
+            {
+                return Ok(updatedPage);
+            }
+
+            return BadRequest();
+        }
 
         [HttpPost]
         public async Task<ActionResult<Page>> Create([FromBody] CreatePage createPage)

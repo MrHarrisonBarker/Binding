@@ -27,4 +27,32 @@ namespace Binding.Models
         [AllowNull]
         public Page Parent { get; set; }
     }
+
+    public class PageViewModel
+    {
+        public Guid Id { get; set; }
+        public string Name { get; set; }
+        
+        public DateTime Created { get; set; }
+        public DateTime Updated { get; set; }
+        
+        public int Order { get; set; }
+        
+        public IList<PageViewModel> Children { get; set; }
+    }
+    
+    public class PageWithBlockViewModel
+    {
+        public Guid Id { get; set; }
+        public string Name { get; set; }
+        
+        public DateTime Created { get; set; }
+        public DateTime Updated { get; set; }
+        
+        public int Order { get; set; }
+        
+        public IList<PageViewModel> Children { get; set; }
+        
+        public IList<BlockViewModel> Blocks { get; set; }
+    }
 }

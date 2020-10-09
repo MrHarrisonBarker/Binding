@@ -38,5 +38,17 @@ namespace Binding.Test.Services.PageService
 
             page.Id.Should().Be(pageId);
         }
+        
+        [Test]
+        public async Task ShouldNotFindPage()
+        {
+            var pageService = new Binding.Services.PageService(_context);
+
+            var pageId = Guid.Empty;
+
+            var page = await pageService.GetAsync(pageId);
+
+            page.Should().BeNull();
+        }
     }
 }

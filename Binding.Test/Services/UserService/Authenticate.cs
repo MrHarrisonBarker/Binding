@@ -1,20 +1,17 @@
 using System;
-using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using Binding.Contexts;
 using Binding.Mapping;
-using Binding.Test.Seeds;
 using Binding.Test.Setups;
 using FluentAssertions;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using NUnit.Framework;
 
 namespace Binding.Test.Services.UserService
 {
     [TestFixture]
-    public class GetAllAsync
+    public class Authenticate
     {
         private BindingContext _context;
         private IMapper _mapper;
@@ -43,31 +40,31 @@ namespace Binding.Test.Services.UserService
         }
 
         [Test]
-        public async Task ReturnsListOfUniqueUsers()
+        public async Task ShouldAuthenticate()
         {
             var userService = new Binding.Services.UserService(_context, _mapper, _appSettings);
-            var users = await userService.GetAllAsync();
 
-            users.Should().HaveCount(c => c > 0).And.OnlyHaveUniqueItems();
+            var hasAuthenticated = await userService.Authenticate("harrison@thebarkers.me.uk",
+                "Password");
+
+            hasAuthenticated.Should().NotBeNull();
         }
 
         [Test]
-        public async Task UsersPageShouldBeOwnedByUser()
+        public async Task ShouldNotAuthenticate()
         {
             var userService = new Binding.Services.UserService(_context, _mapper, _appSettings);
-            var users = await userService.GetAllAsync();
 
-            users.ForEach(user =>
+            // FluentActions.Invoking(async () =>
+            //         await userService.Authenticate("harrison@thebarkers.me.uk", "Wrong password"))
+            //     .Should().Throw<Exception>()
+            //     .WithMessage("Password incorrect");
+
+            Func<Task> act = async () =>
             {
-                if (user.Pages.Any())
-                {
-                    foreach (var page in user.Pages)
-                    {
-                        Console.WriteLine($"{user.Id} -> {page.Owner.Id}");
-                        page.Owner.Id.Should().Be(user.Id);
-                    }
-                }
-            });
+                await userService.Authenticate("harrison@thebarkers.me.uk", "Wrong password");
+            };
+            await act.Should().ThrowAsync<Exception>().WithMessage("Password incorrect");
         }
     }
 }

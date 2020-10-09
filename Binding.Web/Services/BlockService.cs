@@ -66,6 +66,7 @@ namespace Binding.Services
 
         public async Task<Block> UpdateAsync(Block block)
         {
+            
             // var realBlock = await _bindingContext.Blocks.FirstOrDefaultAsync(x => x.Id == block.Id);
             //
             // if (realBlock == null)
@@ -88,7 +89,7 @@ namespace Binding.Services
                 {
                     throw new Exception("Block not found");
                 }
-                throw;
+                throw new Exception("Database error");
             }
         }
 

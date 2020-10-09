@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Binding.Contexts;
 using Binding.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Options;
 
 namespace Binding.Test.Seeds
 {
@@ -97,10 +99,11 @@ namespace Binding.Test.Seeds
             {
                 Email = "harrison@thebarkers.me.uk",
                 Id = userId,
-                Password = "Password",
+                Password = "ANP5SII1yYTgrIH8dTPn74nFNi2rVZPgE8neNWyn/6iuKrZ1twCi90s8W0mlv7PrxA==",
                 DisplayName = "Harrison Barker",
                 Pages = new List<Page>() {page, childPage}
             };
+            // password
 
             await bindingContext.Users.AddAsync(user);
             await bindingContext.Pages.AddAsync(page);

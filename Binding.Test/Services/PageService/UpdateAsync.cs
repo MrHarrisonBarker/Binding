@@ -44,5 +44,21 @@ namespace Binding.Test.Services.PageService
             var check = await _context.Pages.FirstOrDefaultAsync(x => x.Id == page.Id);
             check.Should().Be(page);
         }
+
+        [Test]
+        public async Task ShouldNotFindPage()
+        {
+            var page = new Page()
+            {
+                Id = Guid.Empty,
+                Name = "Empty Page, does not exist",
+            };
+            
+            var pageService = new Binding.Services.PageService(_context);
+            
+            FluentActions.Invoking(async () => await pageService.UpdateAsync(page))
+                .Should().Throw<Exception>()
+                .WithMessage("Page not found");
+        }
     }
 }

@@ -37,7 +37,10 @@
             <e p="UpdateAsync.cs" t="Include" />
           </e>
           <e p="UserService" t="Include">
+            <e p="Authenticate.cs" t="Include" />
+            <e p="CreateAsync.cs" t="Include" />
             <e p="GetAllAsync.cs" t="Include" />
+            <e p="GetAsync.cs" t="Include" />
           </e>
         </e>
         <e p="Setups" t="Include">
@@ -45,6 +48,7 @@
         </e>
       </e>
       <e p="Binding.Web" t="IncludeRecursive">
+        <e p="AppSettings.cs" t="Include" />
         <e p="appsettings.Development.json" t="Include" />
         <e p="appsettings.json" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
@@ -200,6 +204,12 @@
           <e p="README.md" t="Include" />
           <e p="src" t="Include">
             <e p="app" t="Include">
+              <e p="_services" t="Include">
+                <e p="page.service.spec.ts" t="Include" />
+                <e p="page.service.ts" t="Include" />
+                <e p="user.service.spec.ts" t="Include" />
+                <e p="user.service.ts" t="Include" />
+              </e>
               <e p="app.component.html" t="Include" />
               <e p="app.component.ts" t="Include" />
               <e p="app.module.ts" t="Include" />
@@ -260,6 +270,9 @@
           <e p="BlockController.cs" t="Include" />
           <e p="PageController.cs" t="Include" />
           <e p="UserController.cs" t="Include" />
+        </e>
+        <e p="Mapping" t="Include">
+          <e p="AutoMapping.cs" t="Include" />
         </e>
         <e p="Migrations" t="Include">
           <e p="20201006170151_inital.cs" t="Include" />

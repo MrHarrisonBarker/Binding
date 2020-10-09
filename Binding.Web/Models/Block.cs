@@ -16,4 +16,9 @@ namespace Binding.Models
         // one to many pages
         public Page Page { get; set; }
     }
+
+    public class BlockViewModel
+    {
+        
+    }
 }

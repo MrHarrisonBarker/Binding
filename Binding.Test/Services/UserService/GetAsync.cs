@@ -1,20 +1,17 @@
 using System;
-using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using Binding.Contexts;
 using Binding.Mapping;
-using Binding.Test.Seeds;
 using Binding.Test.Setups;
 using FluentAssertions;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using NUnit.Framework;
 
 namespace Binding.Test.Services.UserService
 {
     [TestFixture]
-    public class GetAllAsync
+    public class GetAsync
     {
         private BindingContext _context;
         private IMapper _mapper;
@@ -26,9 +23,9 @@ namespace Binding.Test.Services.UserService
             var myProfile = new AutoMapping();
             var configuration = new MapperConfiguration(cfg => cfg.AddProfile(myProfile));
             _mapper = new Mapper(configuration);
-
+            
             _context = await new BasicSetup().Setup();
-
+            
             _appSettings = Options.Create(new AppSettings()
             {
                 Secret = "this is a secret"
@@ -43,31 +40,12 @@ namespace Binding.Test.Services.UserService
         }
 
         [Test]
-        public async Task ReturnsListOfUniqueUsers()
+        public async Task ShouldGetUserWithOnlyParentPages()
         {
-            var userService = new Binding.Services.UserService(_context, _mapper, _appSettings);
-            var users = await userService.GetAllAsync();
+            var userService = new Binding.Services.UserService(_context,_mapper,_appSettings);
+            var user = await userService.GetAsync(new Guid("c385730a-91a5-429f-9c0c-b3e9bd4e5788"));
 
-            users.Should().HaveCount(c => c > 0).And.OnlyHaveUniqueItems();
-        }
-
-        [Test]
-        public async Task UsersPageShouldBeOwnedByUser()
-        {
-            var userService = new Binding.Services.UserService(_context, _mapper, _appSettings);
-            var users = await userService.GetAllAsync();
-
-            users.ForEach(user =>
-            {
-                if (user.Pages.Any())
-                {
-                    foreach (var page in user.Pages)
-                    {
-                        Console.WriteLine($"{user.Id} -> {page.Owner.Id}");
-                        page.Owner.Id.Should().Be(user.Id);
-                    }
-                }
-            });
+            user.Should().NotBeNull();
         }
     }
 }
