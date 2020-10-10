@@ -98,5 +98,11 @@ namespace Binding.Test.Services.PageService
             var childPages = await _context.Pages.Where(x => childIds.Contains(pageWithChildrenId)).ToListAsync();
             childPages.Count.Should().Be(0);
         }
+        
+        [Test]
+        public async Task ShouldFixOrder()
+        {
+            
+        }
     }
 }

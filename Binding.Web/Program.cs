@@ -73,9 +73,11 @@ namespace Binding
             {
                 Email = "harrison@thebarkers.me.uk",
                 Id = userId,
-                Password = "Password",
+                Password = "ANP5SII1yYTgrIH8dTPn74nFNi2rVZPgE8neNWyn/6iuKrZ1twCi90s8W0mlv7PrxA==",
                 DisplayName = "Harrison Barker",
-                Pages = new List<Page>() {page, childPage}
+                Pages = new List<Page>() {page, childPage},
+                Created = DateTime.Now,
+                Updated = DateTime.Now
             };
 
             bindingContext.Users.Add(user);

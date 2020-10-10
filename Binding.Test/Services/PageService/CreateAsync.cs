@@ -174,6 +174,31 @@ namespace Binding.Test.Services.PageService
             var pageService = new Binding.Services.PageService(_context,_mapper);
 
             var newPage = await pageService.CreateAsync(page, userId);
+            // TODO: Finish
+        }
+
+        [Test]
+        public async Task ShouldIncrementOrder()
+        {
+            
+            var userId = Guid.Parse("c385730a-91a5-429f-9c0c-b3e9bd4e5788");
+            var page1 = new Page()
+            {
+                Name = "Empty Test Page 1"
+            };
+            
+            var page2 = new Page()
+            {
+                Name = "Empty Test Page 2"
+            };
+            
+            var pageService = new Binding.Services.PageService(_context,_mapper);
+
+            var p1 = await pageService.CreateAsync(page1, userId);
+            var p2 = await pageService.CreateAsync(page2, userId);
+
+            p2.Order.Should().BeGreaterThan(p1.Order);
+
         }
     }
 }

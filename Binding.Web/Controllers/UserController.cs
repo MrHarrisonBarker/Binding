@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Binding.Models;
 using Binding.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Binding.Controllers
@@ -30,10 +31,11 @@ namespace Binding.Controllers
             return await _userService.GetAsync(id);
         }
 
-        [HttpGet("authenticate")]
-        public async Task<ActionResult<UserViewModel>> Authenticate(string email, string password)
+        [AllowAnonymous]
+        [HttpPost("authenticate")]
+        public async Task<ActionResult<UserViewModel>> Authenticate([FromBody] Auth auth)
         {
-            return await _userService.Authenticate(email, password);
+            return await _userService.Authenticate(auth.Email, auth.Password);
         }
         
         [HttpPost]
@@ -47,5 +49,11 @@ namespace Binding.Controllers
 
             return Ok(block);
         }
+    }
+
+    public class Auth
+    {
+        public string Email { get; set; }
+        public string Password { get; set; }
     }
 }

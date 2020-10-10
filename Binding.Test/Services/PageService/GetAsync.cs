@@ -49,12 +49,12 @@ namespace Binding.Test.Services.PageService
         public async Task ShouldNotFindPage()
         {
             var pageService = new Binding.Services.PageService(_context,_mapper);
-
-            var pageId = Guid.Empty;
-
-            var page = await pageService.GetAsync(pageId);
-
-            page.Should().BeNull();
+            
+            Func<Task> act = async () =>
+            {
+                await pageService.GetAsync(Guid.Empty);
+            };
+            await act.Should().ThrowAsync<Exception>().WithMessage("Page not found");
         }
     }
 }

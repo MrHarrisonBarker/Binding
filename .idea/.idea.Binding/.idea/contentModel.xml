@@ -98,6 +98,7 @@
           <e p="node_modules/ansi-colors" t="IncludeRecursive" />
           <e p="node_modules/arg" t="IncludeRecursive" />
           <e p="node_modules/aspnet-prerendering" t="IncludeRecursive" />
+          <e p="node_modules/automapper-ts" t="IncludeRecursive" />
           <e p="node_modules/blocking-proxy" t="IncludeRecursive" />
           <e p="node_modules/bootstrap" t="IncludeRecursive" />
           <e p="node_modules/canonical-path" t="IncludeRecursive" />
@@ -230,6 +231,12 @@
                 <e p="home.component.html" t="Include" />
                 <e p="home.component.ts" t="Include" />
               </e>
+              <e p="login" t="Include">
+                <e p="login.component.css" t="Include" />
+                <e p="login.component.html" t="Include" />
+                <e p="login.component.spec.ts" t="Include" />
+                <e p="login.component.ts" t="Include" />
+              </e>
               <e p="nav-menu" t="Include">
                 <e p="nav-menu.component.css" t="Include" />
                 <e p="nav-menu.component.html" t="Include" />
@@ -287,6 +294,8 @@
           <e p="20201006221402_createdandupdated.Designer.cs" t="Include" />
           <e p="20201008145417_orders.cs" t="Include" />
           <e p="20201008145417_orders.Designer.cs" t="Include" />
+          <e p="20201010144445_token.cs" t="Include" />
+          <e p="20201010144445_token.Designer.cs" t="Include" />
           <e p="BindingContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="Models" t="Include">

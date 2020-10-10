@@ -65,5 +65,18 @@ namespace Binding.Test.Services.UserService
             };
             await act.Should().ThrowAsync<Exception>().WithMessage("Password incorrect");
         }
+
+        [Test]
+        public async Task ShouldNotFindUser()
+        {
+            var userService = new Binding.Services.UserService(_context, _mapper, _appSettings);
+            
+            // "User not found"
+            Func<Task> act = async () =>
+            {
+                await userService.Authenticate("wrong email", "Wrong password");
+            };
+            await act.Should().ThrowAsync<Exception>().WithMessage("User not found");
+        }
     }
 }

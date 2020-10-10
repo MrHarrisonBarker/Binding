@@ -55,9 +55,16 @@ namespace Binding.Services
                     {
                         parent.Childern = new List<Page>();
                     }
+
+                    page.Order = parent.Childern.Count;
                     parent.Childern.Add(page);
                     parent.Updated = DateTime.Now;
                     page.Parent = null;
+                }
+                else
+                {
+                    var pagesWithNoParents = _bindingContext.Pages.Where(x => x.Parent == null);
+                    page.Order = pagesWithNoParents.Count();
                 }
                 
                 page.Updated = DateTime.Now;
@@ -90,9 +97,9 @@ namespace Binding.Services
         {
             // when getting page, get page with blocks and minimal children and minimal parent just for refrence
 
-            return await _bindingContext.Pages.Select(x => new PageWithBlocksViewModel()
+            var page = await _bindingContext.Pages.Select(x => new PageWithBlocksViewModel()
             {
-                Id = id,
+                Id = x.Id,
                 Name = x.Name,
                 Created = x.Created,
                 Updated = x.Updated,
@@ -100,8 +107,16 @@ namespace Binding.Services
                 Children = x.Childern.Select(child => _mapper.Map<PageWithNoBlocksViewModel>(child)).ToList(),
                 Blocks = x.Blocks.Select(block => _mapper.Map<BlockViewModel>(block)).ToList(),
                 Parent = _mapper.Map<PageWithNoBlocksViewModel>(x.Parent)
-                
             }).FirstOrDefaultAsync(x => x.Id == id);
+
+            if (page == null)
+            {
+                throw new Exception("Page not found");
+            }
+            
+            return page;
+
+            // return await _bindingContext.Pages.FirstOrDefaultAsync(x => x.Id == id);
         }
 
         public async Task<Page> UpdateAsync(Page page)

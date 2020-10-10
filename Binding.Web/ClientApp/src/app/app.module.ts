@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { PageComponent } from './page/page.component';
 import { BlockComponent } from './block/block.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -18,14 +19,15 @@ import { SideBarComponent } from './side-bar/side-bar.component';
     HomeComponent,
     PageComponent,
     BlockComponent,
-    SideBarComponent
+    SideBarComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' }
+      { path: '', component: LoginComponent, pathMatch: 'full' }
     ])
   ],
   providers: [],

@@ -40,12 +40,15 @@ namespace Binding.Services
                 block.Updated = DateTime.Now;
                 block.Page = null;
 
-                await _bindingContext.Blocks.AddAsync(block);
-
                 if (page.Blocks == null)
                 {
                     page.Blocks = new List<Block>();
                 }
+
+                block.Order = page.Blocks.Count;
+
+                await _bindingContext.Blocks.AddAsync(block);
+                
                 page.Blocks.Add(block);
                 page.Updated = DateTime.Now;
 

@@ -1,9 +1,15 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
+import {Page} from "../_models/Page";
 
 @Injectable({
   providedIn: 'root'
 })
-export class PageService {
+export class PageService
+{
 
-  constructor() { }
+  public Pages: Page[];
+
+  constructor ()
+  {
+  }
 }

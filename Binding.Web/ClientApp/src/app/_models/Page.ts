@@ -9,12 +9,12 @@ export interface Page
   Updated : Date;
   Order : number;
   Owner : User;
-  Blocks : Block[];
-  Children : Page[];
-  Parent : Page;
+  Blocks? : Block[];
+  Children? : Page[];
+  Parent? : Page;
 }
 
-export interface PageWithNoBlocksViewModel
+export interface  PageWithNoBlocksViewModel
 {
   Id : string;
   Name : string;

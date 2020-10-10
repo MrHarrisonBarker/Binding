@@ -5,11 +5,9 @@ export interface User
   Id: string;
   DisplayName: string;
   Email: string;
-  Password: string;
   Token: string;
   Created: Date;
   Updated: Date;
-  Pages: Page[];
 }
 
 export interface UserViewModel

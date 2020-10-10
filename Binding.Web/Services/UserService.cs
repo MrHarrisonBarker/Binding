@@ -67,6 +67,11 @@ namespace Binding.Services
                     Children = p.Childern.Select(child => _mapper.Map<PageWithNoBlocksViewModel>(child)).ToList()
                 }).ToList()
             }).FirstOrDefaultAsync(x => x.Email == email);
+
+            if (user == null)
+            {
+                throw new Exception("User not found");
+            }
             
             if (hasher.VerifyHashedPassword(user, user.Password, password) == PasswordVerificationResult.Failed)
             {
