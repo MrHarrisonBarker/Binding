@@ -7,7 +7,8 @@ namespace Binding.Mapping
     {
         public AutoMapping()
         {
-            CreateMap<Page, PageViewModel>();
+            CreateMap<Page, PageWithNoBlocksViewModel>();
+            CreateMap<Block, BlockViewModel>();
         }
     }
 }

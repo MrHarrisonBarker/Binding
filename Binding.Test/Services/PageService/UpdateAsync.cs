@@ -1,6 +1,8 @@
 using System;
 using System.Threading.Tasks;
+using AutoMapper;
 using Binding.Contexts;
+using Binding.Mapping;
 using Binding.Models;
 using Binding.Test.Setups;
 using FluentAssertions;
@@ -13,12 +15,16 @@ namespace Binding.Test.Services.PageService
     public class UpdateAsync
     {
         private BindingContext _context;
+        private IMapper _mapper;
 
         [SetUp]
         public async Task Setup()
         {
             _context = await new BasicSetup().Setup();
+            var configuration = new MapperConfiguration(cfg => cfg.AddProfile(new AutoMapping()));
+            _mapper = new Mapper(configuration);
         }
+
 
         [TearDown]
         public async Task TearDown()
@@ -36,7 +42,7 @@ namespace Binding.Test.Services.PageService
                 Name = "Empty Page, has been updated",
             };
             
-            var pageService = new Binding.Services.PageService(_context);
+            var pageService = new Binding.Services.PageService(_context,_mapper);
 
             var updatedBlock = await pageService.UpdateAsync(page);
             updatedBlock.Should().Be(page);
@@ -54,7 +60,7 @@ namespace Binding.Test.Services.PageService
                 Name = "Empty Page, does not exist",
             };
             
-            var pageService = new Binding.Services.PageService(_context);
+            var pageService = new Binding.Services.PageService(_context,_mapper);
             
             FluentActions.Invoking(async () => await pageService.UpdateAsync(page))
                 .Should().Throw<Exception>()

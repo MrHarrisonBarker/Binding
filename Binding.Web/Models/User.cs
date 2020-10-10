@@ -27,6 +27,6 @@ namespace Binding.Models
         public string Token { get; set; }
         public DateTime Created { get; set; }
         public DateTime Updated { get; set; }
-        public IList<PageViewModel> Pages { get; set; }
+        public IList<PageWithNoBlocksViewModel> Pages { get; set; }
     }
 }

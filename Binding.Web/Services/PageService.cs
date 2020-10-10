@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Binding.Contexts;
 using Binding.Models;
 using Microsoft.EntityFrameworkCore;
@@ -10,7 +12,7 @@ namespace Binding.Services
     public interface IPageService
     {
         Task<Page> CreateAsync(Page page, Guid userId);
-        Task<Page> GetAsync(Guid id);
+        Task<PageWithBlocksViewModel> GetAsync(Guid id);
         Task<Page> UpdateAsync(Page page);
         Task<bool> DeleteAsync(Guid id);
     }
@@ -18,10 +20,12 @@ namespace Binding.Services
     public class PageService : IPageService
     {
         private readonly BindingContext _bindingContext;
+        private readonly IMapper _mapper;
 
-        public PageService(BindingContext bindingContext)
+        public PageService(BindingContext bindingContext, IMapper mapper)
         {
             _bindingContext = bindingContext;
+            _mapper = mapper;
         }
 
         public async Task<Page> CreateAsync(Page page,Guid userId)
@@ -82,12 +86,22 @@ namespace Binding.Services
             }
         }
 
-        public async Task<Page> GetAsync(Guid id)
+        public async Task<PageWithBlocksViewModel> GetAsync(Guid id)
         {
-            return await _bindingContext.Pages
-                .Include(x => x.Childern)
-                .Include(x => x.Blocks)
-                .FirstOrDefaultAsync(x => x.Id == id);
+            // when getting page, get page with blocks and minimal children and minimal parent just for refrence
+
+            return await _bindingContext.Pages.Select(x => new PageWithBlocksViewModel()
+            {
+                Id = id,
+                Name = x.Name,
+                Created = x.Created,
+                Updated = x.Updated,
+                Order = x.Order,
+                Children = x.Childern.Select(child => _mapper.Map<PageWithNoBlocksViewModel>(child)).ToList(),
+                Blocks = x.Blocks.Select(block => _mapper.Map<BlockViewModel>(block)).ToList(),
+                Parent = _mapper.Map<PageWithNoBlocksViewModel>(x.Parent)
+                
+            }).FirstOrDefaultAsync(x => x.Id == id);
         }
 
         public async Task<Page> UpdateAsync(Page page)

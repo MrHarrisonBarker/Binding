@@ -57,14 +57,14 @@ namespace Binding.Services
                 Password = v.Password,
                 Updated = v.Updated,
                 DisplayName = v.DisplayName,
-                Pages = v.Pages.Where(x => x.Parent == null).Select(p => new PageViewModel()
+                Pages = v.Pages.Where(x => x.Parent == null).Select(p => new PageWithNoBlocksViewModel()
                 {
                     Id = p.Id,
                     Created = p.Created,
                     Name = p.Name,
                     Order = p.Order,
                     Updated = p.Updated,
-                    Children = p.Childern.Select(child => _mapper.Map<PageViewModel>(child)).ToList()
+                    Children = p.Childern.Select(child => _mapper.Map<PageWithNoBlocksViewModel>(child)).ToList()
                 }).ToList()
             }).FirstOrDefaultAsync(x => x.Email == email);
             
@@ -144,14 +144,14 @@ namespace Binding.Services
                 Email = v.Email,
                 Updated = v.Updated,
                 DisplayName = v.DisplayName,
-                Pages = v.Pages.Where(x => x.Parent == null).Select(p => new PageViewModel()
+                Pages = v.Pages.Where(x => x.Parent == null).Select(p => new PageWithNoBlocksViewModel()
                 {
                     Id = p.Id,
                     Created = p.Created,
                     Name = p.Name,
                     Order = p.Order,
                     Updated = p.Updated,
-                    Children = p.Childern.Select(child => _mapper.Map<PageViewModel>(child)).ToList()
+                    Children = p.Childern.Select(child => _mapper.Map<PageWithNoBlocksViewModel>(child)).ToList()
                 }).ToList()
             }).FirstOrDefaultAsync(x => x.Id == id);
 

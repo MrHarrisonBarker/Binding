@@ -204,6 +204,12 @@
           <e p="README.md" t="Include" />
           <e p="src" t="Include">
             <e p="app" t="Include">
+              <e p="_models" t="Include">
+                <e p="Block.ts" t="Include" />
+                <e p="BlockType.ts" t="Include" />
+                <e p="Page.ts" t="Include" />
+                <e p="User.ts" t="Include" />
+              </e>
               <e p="_services" t="Include">
                 <e p="page.service.spec.ts" t="Include" />
                 <e p="page.service.ts" t="Include" />

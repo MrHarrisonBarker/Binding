@@ -2,7 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Binding.Contexts;
+using Binding.Mapping;
 using Binding.Models;
 using Binding.Test.Setups;
 using ET.FakeText;
@@ -16,11 +18,14 @@ namespace Binding.Test.Services.PageService
     public class CreateAsync
     {
         private BindingContext _context;
+        private IMapper _mapper;
 
         [SetUp]
         public async Task Setup()
         {
             _context = await new BasicSetup().Setup();
+            var configuration = new MapperConfiguration(cfg => cfg.AddProfile(new AutoMapping()));
+            _mapper = new Mapper(configuration);
         }
 
         [TearDown]
@@ -38,7 +43,7 @@ namespace Binding.Test.Services.PageService
                 Name = "Empty Test Page"
             };
 
-            var pageService = new Binding.Services.PageService(_context);
+            var pageService = new Binding.Services.PageService(_context,_mapper);
 
             var newPage = await pageService.CreateAsync(page, Guid.Empty);
             
@@ -55,7 +60,7 @@ namespace Binding.Test.Services.PageService
                 Name = "Empty Test Page"
             };
 
-            var pageService = new Binding.Services.PageService(_context);
+            var pageService = new Binding.Services.PageService(_context,_mapper);
 
             var newPage = await pageService.CreateAsync(page, userId);
             
@@ -78,7 +83,7 @@ namespace Binding.Test.Services.PageService
                 }
             };
 
-            var pageService = new Binding.Services.PageService(_context);
+            var pageService = new Binding.Services.PageService(_context,_mapper);
 
             var newPage = await pageService.CreateAsync(page, userId);
 
@@ -102,7 +107,7 @@ namespace Binding.Test.Services.PageService
                 }
             };
 
-            var pageService = new Binding.Services.PageService(_context);
+            var pageService = new Binding.Services.PageService(_context,_mapper);
 
             var newPage = await pageService.CreateAsync(page, userId);
 
@@ -133,7 +138,7 @@ namespace Binding.Test.Services.PageService
                 Blocks = blocks
             };
             
-            var pageService = new Binding.Services.PageService(_context);
+            var pageService = new Binding.Services.PageService(_context,_mapper);
 
             var newPage = await pageService.CreateAsync(page, userId);
             
@@ -166,7 +171,7 @@ namespace Binding.Test.Services.PageService
                 }
             };
 
-            var pageService = new Binding.Services.PageService(_context);
+            var pageService = new Binding.Services.PageService(_context,_mapper);
 
             var newPage = await pageService.CreateAsync(page, userId);
         }

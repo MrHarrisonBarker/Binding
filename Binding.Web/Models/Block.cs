@@ -19,6 +19,13 @@ namespace Binding.Models
 
     public class BlockViewModel
     {
+        public Guid Id { get; set; }
+        public BlockType Type { get; set; }
+        public string Content { get; set; }
         
+        public DateTime Created { get; set; }
+        public DateTime Updated { get; set; }
+        
+        public int Order { get; set; }
     }
 }

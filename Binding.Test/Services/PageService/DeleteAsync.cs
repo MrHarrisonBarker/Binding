@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Transactions;
+using AutoMapper;
 using Binding.Contexts;
+using Binding.Mapping;
 using Binding.Test.Seeds;
 using Binding.Test.Setups;
 using FluentAssertions;
@@ -17,11 +19,14 @@ namespace Binding.Test.Services.PageService
     public class DeleteAsync
     {
         private BindingContext _context;
+        private IMapper _mapper;
 
         [SetUp]
         public async Task Setup()
         {
             _context = await new BasicSetup().Setup();
+            var configuration = new MapperConfiguration(cfg => cfg.AddProfile(new AutoMapping()));
+            _mapper = new Mapper(configuration);
         }
 
         [TearDown]
@@ -34,7 +39,7 @@ namespace Binding.Test.Services.PageService
         [Test]
         public async Task ShouldFailIfNoPage()
         {
-            var pageService = new Binding.Services.PageService(_context);
+            var pageService = new Binding.Services.PageService(_context,_mapper);
 
             var hasDeleted = await pageService.DeleteAsync(Guid.Empty);
 
@@ -45,7 +50,7 @@ namespace Binding.Test.Services.PageService
         public async Task ShouldDeleteEmptyPage()
         {
             var emptyPageId = Guid.Parse("08d86a58-8c6e-4a0c-8af8-8dee9e95ed66");
-            var pageService = new Binding.Services.PageService(_context);
+            var pageService = new Binding.Services.PageService(_context,_mapper);
 
             var hasDeleted = await pageService.DeleteAsync(emptyPageId);
 
@@ -60,7 +65,7 @@ namespace Binding.Test.Services.PageService
         {
             var pageWithBlocksId = Guid.Parse("08d86a58-8cde-4f61-8831-ae7d5f8705e6");
 
-            var pageService = new Binding.Services.PageService(_context);
+            var pageService = new Binding.Services.PageService(_context,_mapper);
 
             List<Guid> blockIds = new List<Guid>
             {
@@ -85,7 +90,7 @@ namespace Binding.Test.Services.PageService
                 new Guid("7074922C-0F9E-4383-8291-ED3A0A1C3006")
             };
 
-            var pageService = new Binding.Services.PageService(_context);
+            var pageService = new Binding.Services.PageService(_context,_mapper);
             
             var hasDeleted = await pageService.DeleteAsync(pageWithChildrenId);
             hasDeleted.Should().BeTrue();

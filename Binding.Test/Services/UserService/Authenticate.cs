@@ -20,8 +20,7 @@ namespace Binding.Test.Services.UserService
         [SetUp]
         public async Task Setup()
         {
-            var myProfile = new AutoMapping();
-            var configuration = new MapperConfiguration(cfg => cfg.AddProfile(myProfile));
+            var configuration = new MapperConfiguration(cfg => cfg.AddProfile(new AutoMapping()));
             _mapper = new Mapper(configuration);
 
             _context = await new BasicSetup().Setup();

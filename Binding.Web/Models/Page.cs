@@ -28,7 +28,7 @@ namespace Binding.Models
         public Page Parent { get; set; }
     }
 
-    public class PageViewModel
+    public class PageWithNoBlocksViewModel
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
@@ -38,10 +38,10 @@ namespace Binding.Models
         
         public int Order { get; set; }
         
-        public IList<PageViewModel> Children { get; set; }
+        public IList<PageWithNoBlocksViewModel> Children { get; set; }
     }
     
-    public class PageWithBlockViewModel
+    public class PageWithBlocksViewModel
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
@@ -51,8 +51,10 @@ namespace Binding.Models
         
         public int Order { get; set; }
         
-        public IList<PageViewModel> Children { get; set; }
+        public IList<PageWithNoBlocksViewModel> Children { get; set; }
         
         public IList<BlockViewModel> Blocks { get; set; }
+        
+        public PageWithNoBlocksViewModel Parent { get; set; }
     }
 }
