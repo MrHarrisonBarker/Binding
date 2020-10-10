@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using AutoMapper;
 using Binding.Models;
 
@@ -9,6 +10,7 @@ namespace Binding.Mapping
         {
             CreateMap<Page, PageWithNoBlocksViewModel>();
             CreateMap<Block, BlockViewModel>();
+            // CreateMap<IList<Page>, IList<PageWithNoBlocksViewModel>>();
         }
     }
 }

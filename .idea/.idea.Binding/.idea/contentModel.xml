@@ -124,6 +124,7 @@
           <e p="node_modules/license-webpack-plugin" t="IncludeRecursive" />
           <e p="node_modules/magic-string" t="IncludeRecursive" />
           <e p="node_modules/make-error" t="IncludeRecursive" />
+          <e p="node_modules/ngx-loading-bar" t="IncludeRecursive" />
           <e p="node_modules/node-sass" t="IncludeRecursive" />
           <e p="node_modules/oidc-client" t="IncludeRecursive" />
           <e p="node_modules/open" t="IncludeRecursive" />
@@ -205,6 +206,10 @@
           <e p="README.md" t="Include" />
           <e p="src" t="Include">
             <e p="app" t="Include">
+              <e p="_guards" t="Include">
+                <e p="auth.guard.spec.ts" t="Include" />
+                <e p="auth.guard.ts" t="Include" />
+              </e>
               <e p="_models" t="Include">
                 <e p="Block.ts" t="Include" />
                 <e p="BlockType.ts" t="Include" />
@@ -221,6 +226,7 @@
               <e p="app.component.ts" t="Include" />
               <e p="app.module.ts" t="Include" />
               <e p="app.server.module.ts" t="Include" />
+              <e p="auth.interceptor.ts" t="Include" />
               <e p="block" t="Include">
                 <e p="block.component.css" t="Include" />
                 <e p="block.component.html" t="Include" />
@@ -242,6 +248,8 @@
                 <e p="nav-menu.component.html" t="Include" />
                 <e p="nav-menu.component.ts" t="Include" />
               </e>
+              <e p="order.pipe.spec.ts" t="Include" />
+              <e p="order.pipe.ts" t="Include" />
               <e p="page" t="Include">
                 <e p="page.component.css" t="Include" />
                 <e p="page.component.html" t="Include" />
@@ -249,6 +257,12 @@
                 <e p="page.component.ts" t="Include" />
               </e>
               <e p="side-bar" t="Include">
+                <e p="child" t="Include">
+                  <e p="child.component.css" t="Include" />
+                  <e p="child.component.html" t="Include" />
+                  <e p="child.component.spec.ts" t="Include" />
+                  <e p="child.component.ts" t="Include" />
+                </e>
                 <e p="side-bar.component.css" t="Include" />
                 <e p="side-bar.component.html" t="Include" />
                 <e p="side-bar.component.spec.ts" t="Include" />

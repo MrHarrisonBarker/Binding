@@ -24,7 +24,7 @@ namespace Binding.Contexts
                 .WithOne(x => x.Page);
 
             modelBuilder.Entity<Page>()
-                .HasMany(x => x.Childern)
+                .HasMany(x => x.Children)
                 .WithOne(x => x.Parent);
         }
     }

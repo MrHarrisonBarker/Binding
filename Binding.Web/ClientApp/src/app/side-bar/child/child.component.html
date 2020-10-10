@@ -1,0 +1,6 @@
+<div class="page">
+  <div>{{Child.Name}}</div>
+  <div>
+    <child *ngFor="let child of Child.Children" [Child]="child"></child>
+  </div>
+</div>

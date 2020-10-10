@@ -28,10 +28,10 @@ namespace Binding.Services
             _mapper = mapper;
         }
 
-        public async Task<Page> CreateAsync(Page page,Guid userId)
+        public async Task<Page> CreateAsync(Page page, Guid userId)
         {
             // TODO: This won't make children only parents
-            
+
             var user = await _bindingContext.Users.FirstOrDefaultAsync(x => x.Id == userId);
 
             if (user == null)
@@ -51,13 +51,13 @@ namespace Binding.Services
                         return null;
                     }
 
-                    if (parent.Childern == null)
+                    if (parent.Children == null)
                     {
-                        parent.Childern = new List<Page>();
+                        parent.Children = new List<Page>();
                     }
 
-                    page.Order = parent.Childern.Count;
-                    parent.Childern.Add(page);
+                    page.Order = parent.Children.Count;
+                    parent.Children.Add(page);
                     parent.Updated = DateTime.Now;
                     page.Parent = null;
                 }
@@ -66,7 +66,7 @@ namespace Binding.Services
                     var pagesWithNoParents = _bindingContext.Pages.Where(x => x.Parent == null);
                     page.Order = pagesWithNoParents.Count();
                 }
-                
+
                 page.Updated = DateTime.Now;
                 page.Created = DateTime.Now;
                 await _bindingContext.Pages.AddAsync(page);
@@ -75,11 +75,13 @@ namespace Binding.Services
                 {
                     user.Pages = new List<Page>();
                 }
+
                 user.Pages.Add(page);
-                if (page.Childern != null)
+                if (page.Children != null)
                 {
-                    foreach (var child in page.Childern) user.Pages.Add(child);
+                    foreach (var child in page.Children) user.Pages.Add(child);
                 }
+
                 user.Updated = DateTime.Now;
 
                 await _bindingContext.SaveChangesAsync();
@@ -95,35 +97,52 @@ namespace Binding.Services
 
         public async Task<PageWithBlocksViewModel> GetAsync(Guid id)
         {
-            // when getting page, get page with blocks and minimal children and minimal parent just for refrence
+            // when getting page, get page with blocks and minimal children and minimal parent just for reference
 
-            var page = await _bindingContext.Pages.Select(x => new PageWithBlocksViewModel()
+            var page = await _bindingContext.Pages.Include(x => x.Children).Include(x => x.Blocks).FirstOrDefaultAsync(x => x.Id == id);
+
+            page = page.RecC(page, _bindingContext);
+            
+            var newPage = new PageWithBlocksViewModel()
             {
-                Id = x.Id,
-                Name = x.Name,
-                Created = x.Created,
-                Updated = x.Updated,
-                Order = x.Order,
-                Children = x.Childern.Select(child => _mapper.Map<PageWithNoBlocksViewModel>(child)).ToList(),
-                Blocks = x.Blocks.Select(block => _mapper.Map<BlockViewModel>(block)).ToList(),
-                Parent = _mapper.Map<PageWithNoBlocksViewModel>(x.Parent)
-            }).FirstOrDefaultAsync(x => x.Id == id);
+                Id = page.Id,
+                Name = page.Name,
+                Created = page.Created,
+                Updated = page.Updated,
+                Order = page.Order,
+                Blocks = page.Blocks.Select(block => _mapper.Map<BlockViewModel>(block)).ToList(),
+                Children = _mapper.Map<IList<PageWithNoBlocksViewModel>>(page.Children),
+                Parent = _mapper.Map<PageWithNoBlocksViewModel>(page.Parent)
+            };
+
+            // var page = await _bindingContext.Pages.Select(x => new PageWithBlocksViewModel()
+            // {
+            //     Id = x.Id,
+            //     Name = x.Name,
+            //     Created = x.Created,
+            //     Updated = x.Updated,
+            //     Order = x.Order,
+            //     Children = _mapper.Map<IList<PageWithNoBlocksViewModel>>(x.Children),
+            //     Blocks = x.Blocks.Select(block => _mapper.Map<BlockViewModel>(block)).ToList(),
+            //     Parent = _mapper.Map<PageWithNoBlocksViewModel>(x.Parent)
+            // }).FirstOrDefaultAsync(x => x.Id == id);
+
+            // x.Childern.Select(child => _mapper.Map<PageWithNoBlocksViewModel>(child)).ToList()
 
             if (page == null)
             {
                 throw new Exception("Page not found");
             }
-            
-            return page;
+
+            return newPage;
 
             // return await _bindingContext.Pages.FirstOrDefaultAsync(x => x.Id == id);
         }
 
         public async Task<Page> UpdateAsync(Page page)
         {
-            
             _bindingContext.Entry(page).State = EntityState.Modified;
-            
+
             try
             {
                 page.Updated = DateTime.Now;
@@ -136,6 +155,7 @@ namespace Binding.Services
                 {
                     throw new Exception("Page not found");
                 }
+
                 throw;
             }
         }
@@ -161,8 +181,8 @@ namespace Binding.Services
                 }
 
                 _bindingContext.Pages.Remove(page);
-                
-                
+
+
                 await _bindingContext.SaveChangesAsync();
                 return true;
             }

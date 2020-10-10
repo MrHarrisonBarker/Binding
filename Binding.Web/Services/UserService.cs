@@ -32,13 +32,13 @@ namespace Binding.Services
         private readonly IMapper _mapper;
         private readonly AppSettings _appSettings;
 
-        public UserService(BindingContext bindingContext, IMapper mapper,IOptions<AppSettings> appSettings)
+        public UserService(BindingContext bindingContext, IMapper mapper, IOptions<AppSettings> appSettings)
         {
             _bindingContext = bindingContext;
             _mapper = mapper;
             _appSettings = appSettings.Value;
         }
-        
+
         public async Task<UserViewModel> Authenticate(string email, string password)
         {
             PasswordHasher<UserViewModel> hasher = new PasswordHasher<UserViewModel>(
@@ -48,7 +48,9 @@ namespace Binding.Services
                         CompatibilityMode = PasswordHasherCompatibilityMode.IdentityV2
                     })
             );
-            
+
+            // var user = await _bindingContext.Users.FirstOrDefaultAsync(x => x.Email == email);
+
             var user = await _bindingContext.Users.Select(v => new UserViewModel()
             {
                 Id = v.Id,
@@ -56,23 +58,66 @@ namespace Binding.Services
                 Email = v.Email,
                 Password = v.Password,
                 Updated = v.Updated,
-                DisplayName = v.DisplayName,
-                Pages = v.Pages.Where(x => x.Parent == null).Select(p => new PageWithNoBlocksViewModel()
-                {
-                    Id = p.Id,
-                    Created = p.Created,
-                    Name = p.Name,
-                    Order = p.Order,
-                    Updated = p.Updated,
-                    Children = p.Childern.Select(child => _mapper.Map<PageWithNoBlocksViewModel>(child)).ToList()
-                }).ToList()
+                DisplayName = v.DisplayName
             }).FirstOrDefaultAsync(x => x.Email == email);
+
+            var usersPages = await _bindingContext.Pages
+                .Include(x => x.Children)
+                .Include(x => x.Blocks)
+                .Where(x => x.Parent == null && x.Owner.Id == user.Id).ToListAsync();
+
+            var usersPagesViewModel = usersPages.Select(p =>
+            {
+                var page = p.RecC(p, _bindingContext);
+                return new PageWithNoBlocksViewModel()
+                {
+                    Id = page.Id,
+                    Name = page.Name,
+                    Created = page.Created,
+                    Updated = page.Updated,
+                    Order = page.Order,
+                    Children = _mapper.Map<IList<PageWithNoBlocksViewModel>>(page.Children)
+                };
+            }).ToList();
+
+            // var usersPagesViewModel = new PageWithNoBlocksViewModel()
+            // {
+            //     Id = usersPages.Id,
+            //     Name = usersPages.Name,
+            //     Created = usersPages.Created,
+            //     Updated = usersPages.Updated,
+            //     Order = usersPages.Order,
+            //     Children = _mapper.Map<IList<PageWithNoBlocksViewModel>>(usersPages.Children)
+            // };
+
+            user.Pages = usersPagesViewModel;
+
+            // var user = await _bindingContext.Users.Select(v => new UserViewModel()
+            // {
+            //     Id = v.Id,
+            //     Created = v.Created,
+            //     Email = v.Email,
+            //     Password = v.Password,
+            //     Updated = v.Updated,
+            //     DisplayName = v.DisplayName,
+            //     Pages = v.Pages.Where(x => x.Parent != null).Select(p => new PageWithNoBlocksViewModel
+            //     {
+            //       Id  = p.Id,
+            //       Name = p.Name,
+            //       Created = p.Created,
+            //       Updated = p.Updated,
+            //       Order = p.Order,
+            //       Children = p.Children.Select(c => c.FixChildren(c,_bindingContext,_mapper)).ToList()
+            //     }).ToList()
+            // }).FirstOrDefaultAsync(x => x.Email == email);
+
+            // user.Pages = user.Pages.Select(p => p.RecC(p, _bindingContext));
 
             if (user == null)
             {
                 throw new Exception("User not found");
             }
-            
+
             if (hasher.VerifyHashedPassword(user, user.Password, password) == PasswordVerificationResult.Failed)
             {
                 Console.WriteLine("Password incorrect");
@@ -112,7 +157,7 @@ namespace Binding.Services
                 Console.WriteLine("User already exists");
                 throw new Exception("User already exists");
             }
-            
+
             PasswordHasher<User> hasher = new PasswordHasher<User>(
                 new OptionsWrapper<PasswordHasherOptions>(
                     new PasswordHasherOptions()
@@ -136,7 +181,7 @@ namespace Binding.Services
                 Console.WriteLine(e);
                 throw;
             }
-            
+
             throw new NotImplementedException();
         }
 
@@ -156,7 +201,7 @@ namespace Binding.Services
                     Name = p.Name,
                     Order = p.Order,
                     Updated = p.Updated,
-                    Children = p.Childern.Select(child => _mapper.Map<PageWithNoBlocksViewModel>(child)).ToList()
+                    Children = p.Children.Select(child => _mapper.Map<PageWithNoBlocksViewModel>(child)).ToList()
                 }).ToList()
             }).FirstOrDefaultAsync(x => x.Id == id);
 

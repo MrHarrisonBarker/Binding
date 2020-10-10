@@ -1,6 +1,7 @@
 <body>
 
-  <div class="container">
-    <router-outlet></router-outlet>
-  </div>
+<div class="container">
+  <loading-bar color="#FF0000" [height]="3" [animationTime]="0.3" [runInterval]="100" [progress]="0"></loading-bar>
+  <router-outlet></router-outlet>
+</div>
 </body>

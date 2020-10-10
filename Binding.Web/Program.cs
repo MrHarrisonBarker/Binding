@@ -64,7 +64,7 @@ namespace Binding
                 Name = "New Page",
                 Order = 0,
                 Blocks = new List<Block>() {block},
-                Childern = new List<Page>() {childPage},
+                Children = new List<Page>() {childPage},
                 Created = DateTime.Now,
                 Updated = DateTime.Now
             };

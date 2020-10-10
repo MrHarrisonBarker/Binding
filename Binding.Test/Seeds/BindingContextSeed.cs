@@ -19,6 +19,7 @@ namespace Binding.Test.Seeds
             var emptyPageId = Guid.Parse("08d86a58-8c6e-4a0c-8af8-8dee9e95ed66");
             var pageWithBlocksId = Guid.Parse("08d86a58-8cde-4f61-8831-ae7d5f8705e6");
             var pageWithChildrenId = Guid.Parse("AB7DFBF6-0EFD-4425-AC7F-84239116AB95");
+            var pageWithChildrenChildrenId = new Guid("BDDDBEF0-9955-4247-B36C-244919C10129");
             var childPageId = Guid.NewGuid();
 
             var block = new Block()
@@ -46,14 +47,14 @@ namespace Binding.Test.Seeds
                 Id = pageId,
                 Name = "New Page",
                 Blocks = new List<Block>() {block},
-                Childern = new List<Page>() {childPage}
+                Children = new List<Page>() {childPage}
             };
             
             var pageWithChildren = new Page()
             {
                 Id = pageWithChildrenId,
                 Name = "Page with children",
-                Childern = new List<Page>()
+                Children = new List<Page>()
                 {
                     new Page()
                     {
@@ -64,6 +65,28 @@ namespace Binding.Test.Seeds
                     {
                         Id = new Guid("80FC8B21-1816-4648-87E4-E8052056A823"),
                         Name = "Child 1"
+                    }
+                }
+            };
+            
+            var pageWithChildrenChildren = new Page
+            {
+                Id = pageWithChildrenChildrenId,
+                Name = "Page with children",
+                Children = new List<Page>()
+                {
+                    new Page()
+                    {
+                        Id = new Guid("25496AFA-C143-48F7-B287-CEC262AFD973"),
+                        Name = "Child 1",
+                        Children = new List<Page>()
+                        {
+                            new Page()
+                            {
+                                Name = "Child of child 1",
+                                Id = new Guid("76B3E804-BC8C-4310-9A22-243249D34F94")
+                            }
+                        }
                     }
                 }
             };
@@ -112,6 +135,7 @@ namespace Binding.Test.Seeds
             await bindingContext.Blocks.AddAsync(blockWithNoPage);
             await bindingContext.Pages.AddAsync(emptyPage);
             await bindingContext.Pages.AddAsync(pageWithBlocks);
+            await bindingContext.Pages.AddAsync(pageWithChildrenChildren);
 
             await bindingContext.SaveChangesAsync();
         }

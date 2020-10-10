@@ -1,1 +1,6 @@
 <p>side-bar works!</p>
+
+<div *ngFor="let page of pageService.Pages| order:'Order'" class="topLevelPage">
+  <div>** {{page.Name}} **</div>
+  <child *ngFor="let child of page.Children" [Child]="child"></child>
+</div>

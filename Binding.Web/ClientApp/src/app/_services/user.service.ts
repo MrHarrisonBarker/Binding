@@ -5,6 +5,7 @@ import {map} from "rxjs/operators";
 import {PageService} from "./page.service";
 import 'automapper-ts';
 import {Page} from "../_models/Page";
+import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +23,7 @@ export class UserService
     this.BaseUrl = baseUrl;
   }
 
-  public Authenticate (email: string, password: string)
+  public Authenticate (email: string, password: string) : Observable<UserViewModel>
   {
     let auth = {
       Email: email,
@@ -60,9 +61,13 @@ export class UserService
       });
 
       console.log("Pages -> ", this.pageService.Pages);
-
+      return user;
     }));
+  }
 
+  public Authenticated (): boolean
+  {
+    return this.accessToken != null;
   }
 
 }

@@ -56,5 +56,16 @@ namespace Binding.Test.Services.PageService
             };
             await act.Should().ThrowAsync<Exception>().WithMessage("Page not found");
         }
+
+        [Test]
+        public async Task ShouldGetChildrenOfChildren()
+        {
+            var pageService = new Binding.Services.PageService(_context,_mapper);
+
+            var page = await pageService.GetAsync(new Guid("BDDDBEF0-9955-4247-B36C-244919C10129"));
+
+            page.Children.Should().NotBeNull();
+            page.Children[0].Children.Should().NotBeNull();
+        }
     }
 }

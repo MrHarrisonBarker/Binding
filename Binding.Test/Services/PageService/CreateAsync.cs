@@ -91,7 +91,7 @@ namespace Binding.Test.Services.PageService
             newPage.Owner.Id.Should().Be(userId);
 
             var parent = await _context.Pages.FirstOrDefaultAsync(x => x.Id == parentPageId);
-            parent.Childern.Where(x => x.Id == newPage.Id).Should().NotBeNull();
+            parent.Children.Where(x => x.Id == newPage.Id).Should().NotBeNull();
         }
 
         [Test]
@@ -160,7 +160,7 @@ namespace Binding.Test.Services.PageService
             var page = new Page()
             {
                 Name = "Empty Test Page",
-                Childern = new List<Page>()
+                Children = new List<Page>()
                 {
                     new Page()
                     {
