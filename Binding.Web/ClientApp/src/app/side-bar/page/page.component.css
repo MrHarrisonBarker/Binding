@@ -1,0 +1,17 @@
+.page {
+  background-color: aliceblue;
+  margin: 0.5rem;
+}
+
+.topLevelPage {
+  background-color: antiquewhite;
+  margin: 0.5rem;
+}
+
+.sidePage {
+  cursor: pointer;
+}
+
+.sidePage:hover {
+  background-color: cadetblue;
+}

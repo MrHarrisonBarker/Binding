@@ -1,15 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Block} from "../_models/Block";
 
 @Component({
   selector: 'block',
   templateUrl: './block.component.html',
   styleUrls: ['./block.component.css']
 })
-export class BlockComponent implements OnInit {
+export class BlockComponent implements OnInit
+{
 
-  constructor() { }
+  @Input() Block: Block
 
-  ngOnInit() {
+  constructor ()
+  {
+  }
+
+  ngOnInit ()
+  {
+    console.log("Block loaded", this.Block)
   }
 
 }

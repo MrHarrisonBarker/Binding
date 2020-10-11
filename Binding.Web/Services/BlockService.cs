@@ -26,7 +26,7 @@ namespace Binding.Services
 
         public async Task<Block> CreateAsync(Block block, Guid pageId)
         {
-            var page = await _bindingContext.Pages.FirstOrDefaultAsync(x => x.Id == pageId);
+            var page = await _bindingContext.Pages.Include(x => x.Blocks).FirstOrDefaultAsync(x => x.Id == pageId);
 
             if (page == null)
             {

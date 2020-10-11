@@ -3,13 +3,13 @@ import {Page} from "./Page";
 
 export interface Block
 {
-  Id: string;
+  Id?: string;
   Type: BlockType;
   Content: string;
-  Created: Date;
-  Updated: Date;
-  Order: number;
-  Page: Page;
+  Created?: Date;
+  Updated?: Date;
+  Order?: number;
+  Page?: Page;
 }
 
 export interface BlockViewModel

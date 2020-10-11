@@ -18,7 +18,7 @@ namespace Binding.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Page>> Get(Guid id)
+        public async Task<ActionResult<PageWithBlocksViewModel>> Get(Guid id)
         {
             var page = await _pageService.GetAsync(id);
             if (page == null)

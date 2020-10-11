@@ -44,7 +44,7 @@ namespace Binding.Services
             {
                 if (page.Parent != null)
                 {
-                    var parent = await _bindingContext.Pages.FirstOrDefaultAsync(x => x.Id == page.Parent.Id);
+                    var parent = await _bindingContext.Pages.Include(x => x.Children).FirstOrDefaultAsync(x => x.Id == page.Parent.Id);
                     if (parent == null)
                     {
                         Console.WriteLine("Parent not found");
@@ -101,6 +101,11 @@ namespace Binding.Services
 
             var page = await _bindingContext.Pages.Include(x => x.Children).Include(x => x.Blocks).FirstOrDefaultAsync(x => x.Id == id);
 
+            if (page == null)
+            {
+                throw new Exception("Page not found");
+            }
+            
             page = page.RecC(page, _bindingContext);
             
             var newPage = new PageWithBlocksViewModel()
@@ -129,11 +134,6 @@ namespace Binding.Services
 
             // x.Childern.Select(child => _mapper.Map<PageWithNoBlocksViewModel>(child)).ToList()
 
-            if (page == null)
-            {
-                throw new Exception("Page not found");
-            }
-
             return newPage;
 
             // return await _bindingContext.Pages.FirstOrDefaultAsync(x => x.Id == id);
@@ -151,7 +151,7 @@ namespace Binding.Services
             }
             catch (DbUpdateConcurrencyException)
             {
-                if ((await GetAsync(page.Id) == null))
+                if (await GetAsync(page.Id) == null)
                 {
                     throw new Exception("Page not found");
                 }

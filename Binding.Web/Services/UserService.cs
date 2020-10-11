@@ -60,6 +60,11 @@ namespace Binding.Services
                 Updated = v.Updated,
                 DisplayName = v.DisplayName
             }).FirstOrDefaultAsync(x => x.Email == email);
+            
+            if (user == null)
+            {
+                throw new Exception("User not found");
+            }
 
             var usersPages = await _bindingContext.Pages
                 .Include(x => x.Children)
@@ -112,11 +117,6 @@ namespace Binding.Services
             // }).FirstOrDefaultAsync(x => x.Email == email);
 
             // user.Pages = user.Pages.Select(p => p.RecC(p, _bindingContext));
-
-            if (user == null)
-            {
-                throw new Exception("User not found");
-            }
 
             if (hasher.VerifyHashedPassword(user, user.Password, password) == PasswordVerificationResult.Failed)
             {

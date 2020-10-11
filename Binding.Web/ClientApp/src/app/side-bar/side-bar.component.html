@@ -1,6 +1,14 @@
 <p>side-bar works!</p>
 
-<div *ngFor="let page of pageService.Pages| order:'Order'" class="topLevelPage">
-  <div>** {{page.Name}} **</div>
-  <child *ngFor="let child of page.Children" [Child]="child"></child>
-</div>
+<!--<div *ngFor="let page of pageService.Pages| order:'Order'" class="topLevelPage">-->
+<!--  <div class="d-flex justify-content-between">-->
+<!--    <div>** {{page.Name}} **</div>-->
+<!--    <div class="d-flex flex-row">-->
+<!--      <div>{{page.Created | date}}</div>-->
+<!--      <div>{{page.Updated | date}}</div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <child *ngFor="let child of page.Children" [Child]="child"></child>-->
+<!--</div>-->
+
+<Side-Page *ngFor="let page of pageService.Pages | order: 'Order': 'asc'" [Page]="page"></Side-Page>

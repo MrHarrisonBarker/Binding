@@ -1,0 +1,44 @@
+#page {
+  background-color: palevioletred;
+}
+
+#textInput {
+  /*width: 100px;*/
+  width: 100%;
+  white-space: pre-wrap;
+  overflow: hidden;
+  /*overflow:auto;*/
+  /*white-space: nowrap;*/
+  word-break: break-word;
+  padding: 3px 2px;
+  min-height: 1em;
+  color: rgb(55, 53, 47);
+  outline: 0;
+}
+
+/*#textInput.single-line br {*/
+/*  display:none;*/
+
+/*}*/
+/*#textInput.single-line * {*/
+/*  display:inline;*/
+/*  white-space:nowrap;*/
+/*}*/
+
+/*#textInput:hover {*/
+/*  background-color: lightgrey;*/
+/*}*/
+
+/*[contenteditable="true"].single-line {*/
+/*  white-space: nowrap;*/
+/*  width:200px;*/
+/*  overflow: hidden;*/
+/*}*/
+/*[contenteditable="true"].single-line br {*/
+/*  display:none;*/
+
+/*}*/
+/*[contenteditable="true"].single-line * {*/
+/*  display:inline;*/
+/*  white-space:nowrap;*/
+/*}*/

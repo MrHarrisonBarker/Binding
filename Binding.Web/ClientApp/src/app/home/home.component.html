@@ -1,2 +1,5 @@
-<h1>Hello, world!</h1>
-<side-bar></side-bar>
+<h1>Binding</h1>
+<div class="d-flex flex-row h-100">
+  <side-bar style="min-width: 500px"></side-bar>
+  <page class="flex-grow-1" [Page]="pageService.CurrentPage"></page>
+</div>

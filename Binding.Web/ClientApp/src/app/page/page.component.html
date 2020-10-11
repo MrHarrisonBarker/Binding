@@ -1,1 +1,13 @@
-<p>page works!</p>
+<div *ngIf="Page">
+  <div>{{Page.Name}}</div>
+  <div id="page">
+    <block *ngFor="let block of Page.Blocks | order: 'Order': 'asc'" [Block]="block"></block>
+  </div>
+  <div id="inputSpace">
+    <div #blockContentInput contenteditable="true" spellcheck="true" id="textInput" class="single-line" (keypress)="checkPress($event)" (keydown.enter)="SendBlock(blockContentInput.innerText,blockTypeInput.value)"></div>
+    <select #blockTypeInput>
+      <option *ngFor="let item of Types | enumToArray">{{item.name}}</option>
+    </select>
+    <!--    <ng-autocomplete></ng-autocomplete>-->
+  </div>
+</div>

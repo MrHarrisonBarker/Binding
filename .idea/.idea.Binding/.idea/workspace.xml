@@ -25,27 +25,40 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e3febb3-80a4-4b22-b8e5-8e38a5f59126" name="Default Changelist" comment="Added page and block order incrementing and testing. Fixed page get. Switched to pascal case json serialisation">
-      <change afterPath="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/auth.interceptor.ts" afterDir="false" />
+    <list default="true" id="0e3febb3-80a4-4b22-b8e5-8e38a5f59126" name="Default Changelist" comment="Fixed page children recursion with some nasty code">
+      <change afterPath="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/side-bar/page/page.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/side-bar/page/page.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Binding/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Binding/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Binding/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Binding/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Binding.Test/Seeds/BindingContextSeed.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Binding.Test/Seeds/BindingContextSeed.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Binding.Test/Services/PageService/CreateAsync.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Binding.Test/Services/PageService/CreateAsync.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Binding.Test/Services/PageService/GetAsync.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Binding.Test/Services/PageService/GetAsync.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Binding.Web/ClientApp/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/Binding.Web/ClientApp/angular.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Binding.Web/ClientApp/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Binding.Web/ClientApp/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Binding.Web/ClientApp/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/Binding.Web/ClientApp/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/_models/Block.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/_models/Block.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/_models/BlockType.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/_models/BlockType.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/_models/Page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/_models/Page.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/_services/page.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/_services/page.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/_services/user.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/_services/user.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/app.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/block/block.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/block/block.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/block/block.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/block/block.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/home/home.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/login/login.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/home/home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/home/home.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/order.pipe.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/order.pipe.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/page/page.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/page/page.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/page/page.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/page/page.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/page/page.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/page/page.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/side-bar/child/child.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/side-bar/child/child.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/side-bar/child/child.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/side-bar/page/page.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/side-bar/child/child.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/side-bar/page/page.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/side-bar/side-bar.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/side-bar/side-bar.component.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/side-bar/side-bar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/side-bar/side-bar.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/side-bar/side-bar.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/side-bar/side-bar.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Binding.Web/Contexts/BindingContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Binding.Web/Contexts/BindingContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Binding.Web/Mapping/AutoMapping.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Binding.Web/Mapping/AutoMapping.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Binding.Web/Models/Page.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Binding.Web/Models/Page.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Binding.Web/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Binding.Web/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Binding.Web/ClientApp/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Binding.Web/ClientApp/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Binding.Web/ClientApp/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/Binding.Web/ClientApp/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Binding.Web/Controllers/PageController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Binding.Web/Controllers/PageController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Binding.Web/Services/BlockService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Binding.Web/Services/BlockService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Binding.Web/Services/PageService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Binding.Web/Services/PageService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Binding.Web/Services/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Binding.Web/Services/UserService.cs" afterDir="false" />
     </list>
@@ -65,81 +78,65 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///Users/harrison/Desktop/Binding/Binding.Web/Models/Block.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/harrison/Desktop/Binding/Binding.Test/Services/PageService/GetAsync.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/harrison/Desktop/Binding/Binding.Test/Services/PageService/DeleteAsync.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/harrison/Desktop/Binding/Binding.Web/Services/BlockService.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/harrison/Desktop/Binding/Binding.Web/Services/PageService.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/harrison/Desktop/Binding/Binding.Web/Services/UserService.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/harrison/Desktop/Binding/Binding.Test/Services/PageService/DeleteAsync.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/harrison/Desktop/Binding/Binding.Web/Controllers/UserController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/harrison/Desktop/Binding/Binding.Test/Services/UserService/Authenticate.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/harrison/Desktop/Binding/Binding.Test/Services/UserService/Authenticate.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/FB16812E-C38A-42BE-9E52-4D2430C5F3A0/E/PasswordHasher.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/harrison/Desktop/Binding/Binding.Web/Services/UserService.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9FCAADD9-58A4-4900-9D68-546D5ECFE219/3A4/List.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/harrison/Desktop/Binding/Binding.Test/Services/BlockService/DeleteAsync.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/harrison/Desktop/Binding/Binding.Test/Services/BlockService/CreateAsync.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/40264619-E811-4FE1-9369-13381AA357FA/11/AuthenticationException.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/harrison/Desktop/Binding/Binding.Web/Startup.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/harrison/Desktop/Binding/Binding.Web/Services/PageService.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/E007F98B-FAF6-4B61-8606-9397C1AC3679/2F/ParameterExpression.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/harrison/Desktop/Binding/Binding.Test/Services/PageService/GetAsync.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Binding.Web/Properties/launchSettings.json" />
-        <option value="$PROJECT_DIR$/Binding.Test/Setups/BasicSetup.cs" />
-        <option value="$PROJECT_DIR$/Binding.Test/Services/BlockService/GetAsync.cs" />
-        <option value="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/page/page.component.ts" />
-        <option value="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/block/block.component.ts" />
-        <option value="$PROJECT_DIR$/Binding.Web/Models/User.cs" />
-        <option value="$PROJECT_DIR$/Binding.Test/Services/UserService/GetAllAsync.cs" />
-        <option value="$PROJECT_DIR$/Binding.Test/Services/UserService/GetAsync.cs" />
-        <option value="$PROJECT_DIR$/Binding.Test/Services/BlockService/UpdateAsync.cs" />
-        <option value="$PROJECT_DIR$/Binding.Test/Services/UserService/CreateAsync.cs" />
-        <option value="$PROJECT_DIR$/Binding.Web/Controllers/BlockController.cs" />
-        <option value="$PROJECT_DIR$/Binding.Web/Controllers/PageController.cs" />
-        <option value="$PROJECT_DIR$/Binding.Web/appsettings.json" />
-        <option value="$PROJECT_DIR$/Binding.Web/AppSettings.cs" />
         <option value="$PROJECT_DIR$/Binding.Web/Models/Block.cs" />
         <option value="$PROJECT_DIR$/Binding.Test/Services/PageService/UpdateAsync.cs" />
-        <option value="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/_models/Block.ts" />
-        <option value="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/_models/BlockType.ts" />
         <option value="$PROJECT_DIR$/Binding.Test/Services/UserService/Authenticate.cs" />
         <option value="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/_models/User.ts" />
-        <option value="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/_services/page.service.ts" />
-        <option value="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/_models/Page.ts" />
         <option value="$PROJECT_DIR$/Binding.Web/Program.cs" />
         <option value="$PROJECT_DIR$/Binding.Web/Controllers/UserController.cs" />
         <option value="$PROJECT_DIR$/Binding.Web/ClientApp/angular.json" />
         <option value="$PROJECT_DIR$/Binding.Test/Services/BlockService/DeleteAsync.cs" />
         <option value="$PROJECT_DIR$/Binding.Test/Services/PageService/DeleteAsync.cs" />
-        <option value="$PROJECT_DIR$/Binding.Web/Services/BlockService.cs" />
-        <option value="$PROJECT_DIR$/Binding.Test/Services/PageService/CreateAsync.cs" />
         <option value="$PROJECT_DIR$/Binding.Test/Services/BlockService/CreateAsync.cs" />
         <option value="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/_guards/auth.guard.ts" />
         <option value="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/auth.interceptor.ts" />
-        <option value="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/_services/user.service.ts" />
         <option value="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/login/login.component.ts" />
-        <option value="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/app.module.ts" />
-        <option value="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/app.component.html" />
-        <option value="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/home/home.component.html" />
         <option value="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/side-bar/side-bar.component.ts" />
         <option value="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/side-bar/child/child.component.ts" />
         <option value="$PROJECT_DIR$/Binding.Test/Seeds/BindingContextSeed.cs" />
         <option value="$PROJECT_DIR$/Binding.Web/Mapping/AutoMapping.cs" />
         <option value="$PROJECT_DIR$/Binding.Test/Services/PageService/GetAsync.cs" />
         <option value="$PROJECT_DIR$/Binding.Web/Startup.cs" />
-        <option value="$PROJECT_DIR$/Binding.Web/Services/PageService.cs" />
         <option value="$PROJECT_DIR$/Binding.Web/Models/Page.cs" />
         <option value="$PROJECT_DIR$/Binding.Web/Services/UserService.cs" />
+        <option value="$PROJECT_DIR$/Binding.Test/Services/PageService/CreateAsync.cs" />
+        <option value="$PROJECT_DIR$/Binding.Web/Services/PageService.cs" />
         <option value="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/side-bar/child/child.component.html" />
-        <option value="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/side-bar/child/child.component.css" />
         <option value="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/side-bar/side-bar.component.css" />
+        <option value="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/side-bar/child/child.component.css" />
+        <option value="$PROJECT_DIR$/Binding.Web/Controllers/PageController.cs" />
+        <option value="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/_models/Page.ts" />
+        <option value="$PROJECT_DIR$/Binding.Web/ClientApp/src/index.html" />
+        <option value="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/app.component.html" />
+        <option value="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/home/home.component.ts" />
+        <option value="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/block/block.component.ts" />
+        <option value="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/block/block.component.html" />
         <option value="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/side-bar/side-bar.component.html" />
         <option value="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/order.pipe.ts" />
+        <option value="$PROJECT_DIR$/Binding.Web/Services/BlockService.cs" />
+        <option value="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/app.module.ts" />
+        <option value="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/page/page.component.css" />
+        <option value="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/home/home.component.html" />
+        <option value="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/enum-to-array.pipe.ts" />
+        <option value="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/_models/BlockType.ts" />
+        <option value="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/page/page.component.html" />
+        <option value="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/_models/Block.ts" />
+        <option value="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/side-bar/page/page.component.html" />
+        <option value="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/side-bar/page/page.component.css" />
+        <option value="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/side-bar/page/page.component.ts" />
+        <option value="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/_services/user.service.ts" />
+        <option value="$PROJECT_DIR$/Binding.Web/ClientApp/projects/building-blocks/src/lib/building-blocks.service.ts" />
+        <option value="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/page/page.component.ts" />
+        <option value="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/_services/page.service.ts" />
+        <option value="$PROJECT_DIR$/Binding.Web/ClientApp/src/app/_services/block.service.ts" />
       </list>
     </option>
   </component>
@@ -155,6 +152,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/Binding.Web/ClientApp/node_modules/typescript/lib" />
@@ -200,7 +198,8 @@
       <option name="presentableId" value="Default" />
       <updated>1602004903134</updated>
       <workItem from="1602004913557" duration="17492000" />
-      <workItem from="1602089638799" duration="34897000" />
+      <workItem from="1602089638799" duration="35216000" />
+      <workItem from="1602362825716" duration="13433000" />
     </task>
     <task id="LOCAL-00001" summary="Basic api methods with simple tests.">
       <created>1602169143770</created>
@@ -230,7 +229,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602343477436</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Fixed page children recursion with some nasty code">
+      <created>1602362610261</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1602362610261</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -332,7 +338,8 @@
     <MESSAGE value="User service and page service tests added with exception testing, authenticate and other basic endpoints added" />
     <MESSAGE value="Changing get endpoints for user and page to return view models and correct amount of data, endpoint data optimisation is still needed elsewhere. Mirrored models in ts." />
     <MESSAGE value="Added page and block order incrementing and testing. Fixed page get. Switched to pascal case json serialisation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added page and block order incrementing and testing. Fixed page get. Switched to pascal case json serialisation" />
+    <MESSAGE value="Fixed page children recursion with some nasty code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed page children recursion with some nasty code" />
   </component>
   <component name="WindowStateProjectService">
     <state x="677" y="356" key="#Web_Browsers" timestamp="1602030650064">
@@ -343,106 +350,110 @@
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state x="704" y="444" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1792.1097@0.23.1792.1097" timestamp="1602030714485" />
-    <state width="1750" height="123" key="GridCell.Tab.0.bottom" timestamp="1602361655332">
+    <state x="709" y="294" key="#com.intellij.ide.util.MemberChooser" timestamp="1602366611062">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1750" height="363" key="GridCell.Tab.0.bottom/-46.-1057.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1602349869199" />
-    <state width="1750" height="123" key="GridCell.Tab.0.bottom/0.23.1792.1097@0.23.1792.1097" timestamp="1602361655332" />
-    <state width="1750" height="123" key="GridCell.Tab.0.center" timestamp="1602361655332">
+    <state x="709" y="294" key="#com.intellij.ide.util.MemberChooser/-46.-1057.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1602366611062" />
+    <state width="1750" height="233" key="GridCell.Tab.0.bottom" timestamp="1602419778552">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1750" height="363" key="GridCell.Tab.0.center/-46.-1057.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1602349869198" />
-    <state width="1750" height="123" key="GridCell.Tab.0.center/0.23.1792.1097@0.23.1792.1097" timestamp="1602361655332" />
-    <state width="1750" height="123" key="GridCell.Tab.0.left" timestamp="1602361655331">
+    <state width="1750" height="233" key="GridCell.Tab.0.bottom/-46.-1057.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1602419778552" />
+    <state width="1750" height="233" key="GridCell.Tab.0.bottom/0.23.1792.1097@0.23.1792.1097" timestamp="1602364114804" />
+    <state width="1750" height="233" key="GridCell.Tab.0.center" timestamp="1602419778551">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1750" height="363" key="GridCell.Tab.0.left/-46.-1057.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1602349869198" />
-    <state width="1750" height="123" key="GridCell.Tab.0.left/0.23.1792.1097@0.23.1792.1097" timestamp="1602361655331" />
-    <state width="1750" height="123" key="GridCell.Tab.0.right" timestamp="1602361655332">
+    <state width="1750" height="233" key="GridCell.Tab.0.center/-46.-1057.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1602419778551" />
+    <state width="1750" height="233" key="GridCell.Tab.0.center/0.23.1792.1097@0.23.1792.1097" timestamp="1602364114803" />
+    <state width="1750" height="233" key="GridCell.Tab.0.left" timestamp="1602419778551">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1750" height="363" key="GridCell.Tab.0.right/-46.-1057.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1602349869198" />
-    <state width="1750" height="123" key="GridCell.Tab.0.right/0.23.1792.1097@0.23.1792.1097" timestamp="1602361655332" />
-    <state width="1750" height="363" key="GridCell.Tab.1.bottom" timestamp="1602353279209">
+    <state width="1750" height="233" key="GridCell.Tab.0.left/-46.-1057.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1602419778551" />
+    <state width="1750" height="233" key="GridCell.Tab.0.left/0.23.1792.1097@0.23.1792.1097" timestamp="1602364114803" />
+    <state width="1750" height="233" key="GridCell.Tab.0.right" timestamp="1602419778551">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1750" height="363" key="GridCell.Tab.1.bottom/-46.-1057.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1602349869068" />
-    <state width="1750" height="363" key="GridCell.Tab.1.bottom/0.23.1792.1097@0.23.1792.1097" timestamp="1602353279209" />
-    <state width="1750" height="363" key="GridCell.Tab.1.center" timestamp="1602353279209">
+    <state width="1750" height="233" key="GridCell.Tab.0.right/-46.-1057.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1602419778551" />
+    <state width="1750" height="233" key="GridCell.Tab.0.right/0.23.1792.1097@0.23.1792.1097" timestamp="1602364114803" />
+    <state width="1750" height="363" key="GridCell.Tab.1.bottom" timestamp="1602369527987">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1750" height="363" key="GridCell.Tab.1.center/-46.-1057.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1602349869068" />
-    <state width="1750" height="363" key="GridCell.Tab.1.center/0.23.1792.1097@0.23.1792.1097" timestamp="1602353279209" />
-    <state width="1750" height="363" key="GridCell.Tab.1.left" timestamp="1602353279208">
+    <state width="1750" height="363" key="GridCell.Tab.1.bottom/-46.-1057.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1602369527987" />
+    <state width="1750" height="363" key="GridCell.Tab.1.bottom/0.23.1792.1097@0.23.1792.1097" timestamp="1602364038900" />
+    <state width="1750" height="363" key="GridCell.Tab.1.center" timestamp="1602369527985">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1750" height="363" key="GridCell.Tab.1.left/-46.-1057.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1602349869068" />
-    <state width="1750" height="363" key="GridCell.Tab.1.left/0.23.1792.1097@0.23.1792.1097" timestamp="1602353279208" />
-    <state width="1750" height="363" key="GridCell.Tab.1.right" timestamp="1602353279209">
+    <state width="1750" height="363" key="GridCell.Tab.1.center/-46.-1057.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1602369527985" />
+    <state width="1750" height="363" key="GridCell.Tab.1.center/0.23.1792.1097@0.23.1792.1097" timestamp="1602364038900" />
+    <state width="1750" height="363" key="GridCell.Tab.1.left" timestamp="1602369527984">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1750" height="363" key="GridCell.Tab.1.right/-46.-1057.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1602349869068" />
-    <state width="1750" height="363" key="GridCell.Tab.1.right/0.23.1792.1097@0.23.1792.1097" timestamp="1602353279209" />
-    <state width="1750" height="363" key="GridCell.Tab.2.bottom" timestamp="1602353279209">
+    <state width="1750" height="363" key="GridCell.Tab.1.left/-46.-1057.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1602369527984" />
+    <state width="1750" height="363" key="GridCell.Tab.1.left/0.23.1792.1097@0.23.1792.1097" timestamp="1602364038899" />
+    <state width="1750" height="363" key="GridCell.Tab.1.right" timestamp="1602369527987">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1750" height="363" key="GridCell.Tab.2.bottom/-46.-1057.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1602349869069" />
-    <state width="1750" height="363" key="GridCell.Tab.2.bottom/0.23.1792.1097@0.23.1792.1097" timestamp="1602353279209" />
-    <state width="1750" height="363" key="GridCell.Tab.2.center" timestamp="1602353279209">
+    <state width="1750" height="363" key="GridCell.Tab.1.right/-46.-1057.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1602369527987" />
+    <state width="1750" height="363" key="GridCell.Tab.1.right/0.23.1792.1097@0.23.1792.1097" timestamp="1602364038900" />
+    <state width="1750" height="363" key="GridCell.Tab.2.bottom" timestamp="1602369527989">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1750" height="363" key="GridCell.Tab.2.center/-46.-1057.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1602349869069" />
-    <state width="1750" height="363" key="GridCell.Tab.2.center/0.23.1792.1097@0.23.1792.1097" timestamp="1602353279209" />
-    <state width="1750" height="363" key="GridCell.Tab.2.left" timestamp="1602353279209">
+    <state width="1750" height="363" key="GridCell.Tab.2.bottom/-46.-1057.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1602369527989" />
+    <state width="1750" height="363" key="GridCell.Tab.2.bottom/0.23.1792.1097@0.23.1792.1097" timestamp="1602364038901" />
+    <state width="1750" height="363" key="GridCell.Tab.2.center" timestamp="1602369527988">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1750" height="363" key="GridCell.Tab.2.left/-46.-1057.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1602349869069" />
-    <state width="1750" height="363" key="GridCell.Tab.2.left/0.23.1792.1097@0.23.1792.1097" timestamp="1602353279209" />
-    <state width="1750" height="363" key="GridCell.Tab.2.right" timestamp="1602353279209">
+    <state width="1750" height="363" key="GridCell.Tab.2.center/-46.-1057.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1602369527988" />
+    <state width="1750" height="363" key="GridCell.Tab.2.center/0.23.1792.1097@0.23.1792.1097" timestamp="1602364038901" />
+    <state width="1750" height="363" key="GridCell.Tab.2.left" timestamp="1602369527988">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1750" height="363" key="GridCell.Tab.2.right/-46.-1057.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1602349869069" />
-    <state width="1750" height="363" key="GridCell.Tab.2.right/0.23.1792.1097@0.23.1792.1097" timestamp="1602353279209" />
-    <state width="1750" height="363" key="GridCell.Tab.3.bottom" timestamp="1602353279210">
+    <state width="1750" height="363" key="GridCell.Tab.2.left/-46.-1057.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1602369527988" />
+    <state width="1750" height="363" key="GridCell.Tab.2.left/0.23.1792.1097@0.23.1792.1097" timestamp="1602364038900" />
+    <state width="1750" height="363" key="GridCell.Tab.2.right" timestamp="1602369527988">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1750" height="363" key="GridCell.Tab.3.bottom/-46.-1057.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1602349869070" />
-    <state width="1750" height="363" key="GridCell.Tab.3.bottom/0.23.1792.1097@0.23.1792.1097" timestamp="1602353279210" />
-    <state width="1750" height="363" key="GridCell.Tab.3.center" timestamp="1602353279210">
+    <state width="1750" height="363" key="GridCell.Tab.2.right/-46.-1057.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1602369527988" />
+    <state width="1750" height="363" key="GridCell.Tab.2.right/0.23.1792.1097@0.23.1792.1097" timestamp="1602364038901" />
+    <state width="1750" height="363" key="GridCell.Tab.3.bottom" timestamp="1602369527991">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1750" height="363" key="GridCell.Tab.3.center/-46.-1057.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1602349869070" />
-    <state width="1750" height="363" key="GridCell.Tab.3.center/0.23.1792.1097@0.23.1792.1097" timestamp="1602353279210" />
-    <state width="1750" height="363" key="GridCell.Tab.3.left" timestamp="1602353279209">
+    <state width="1750" height="363" key="GridCell.Tab.3.bottom/-46.-1057.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1602369527991" />
+    <state width="1750" height="363" key="GridCell.Tab.3.bottom/0.23.1792.1097@0.23.1792.1097" timestamp="1602364038902" />
+    <state width="1750" height="363" key="GridCell.Tab.3.center" timestamp="1602369527990">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1750" height="363" key="GridCell.Tab.3.left/-46.-1057.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1602349869069" />
-    <state width="1750" height="363" key="GridCell.Tab.3.left/0.23.1792.1097@0.23.1792.1097" timestamp="1602353279209" />
-    <state width="1750" height="363" key="GridCell.Tab.3.right" timestamp="1602353279210">
+    <state width="1750" height="363" key="GridCell.Tab.3.center/-46.-1057.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1602369527990" />
+    <state width="1750" height="363" key="GridCell.Tab.3.center/0.23.1792.1097@0.23.1792.1097" timestamp="1602364038902" />
+    <state width="1750" height="363" key="GridCell.Tab.3.left" timestamp="1602369527989">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1750" height="363" key="GridCell.Tab.3.right/-46.-1057.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1602349869070" />
-    <state width="1750" height="363" key="GridCell.Tab.3.right/0.23.1792.1097@0.23.1792.1097" timestamp="1602353279210" />
-    <state width="1750" height="363" key="GridCell.Tab.4.bottom" timestamp="1602353279210">
+    <state width="1750" height="363" key="GridCell.Tab.3.left/-46.-1057.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1602369527989" />
+    <state width="1750" height="363" key="GridCell.Tab.3.left/0.23.1792.1097@0.23.1792.1097" timestamp="1602364038901" />
+    <state width="1750" height="363" key="GridCell.Tab.3.right" timestamp="1602369527990">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1750" height="363" key="GridCell.Tab.4.bottom/-46.-1057.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1602349869071" />
-    <state width="1750" height="363" key="GridCell.Tab.4.bottom/0.23.1792.1097@0.23.1792.1097" timestamp="1602353279210" />
-    <state width="1750" height="363" key="GridCell.Tab.4.center" timestamp="1602353279210">
+    <state width="1750" height="363" key="GridCell.Tab.3.right/-46.-1057.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1602369527990" />
+    <state width="1750" height="363" key="GridCell.Tab.3.right/0.23.1792.1097@0.23.1792.1097" timestamp="1602364038902" />
+    <state width="1750" height="363" key="GridCell.Tab.4.bottom" timestamp="1602369527993">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1750" height="363" key="GridCell.Tab.4.center/-46.-1057.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1602349869070" />
-    <state width="1750" height="363" key="GridCell.Tab.4.center/0.23.1792.1097@0.23.1792.1097" timestamp="1602353279210" />
-    <state width="1750" height="363" key="GridCell.Tab.4.left" timestamp="1602353279210">
+    <state width="1750" height="363" key="GridCell.Tab.4.bottom/-46.-1057.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1602369527993" />
+    <state width="1750" height="363" key="GridCell.Tab.4.bottom/0.23.1792.1097@0.23.1792.1097" timestamp="1602364038903" />
+    <state width="1750" height="363" key="GridCell.Tab.4.center" timestamp="1602369527992">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1750" height="363" key="GridCell.Tab.4.left/-46.-1057.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1602349869070" />
-    <state width="1750" height="363" key="GridCell.Tab.4.left/0.23.1792.1097@0.23.1792.1097" timestamp="1602353279210" />
-    <state width="1750" height="363" key="GridCell.Tab.4.right" timestamp="1602353279210">
+    <state width="1750" height="363" key="GridCell.Tab.4.center/-46.-1057.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1602369527992" />
+    <state width="1750" height="363" key="GridCell.Tab.4.center/0.23.1792.1097@0.23.1792.1097" timestamp="1602364038902" />
+    <state width="1750" height="363" key="GridCell.Tab.4.left" timestamp="1602369527991">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1750" height="363" key="GridCell.Tab.4.right/-46.-1057.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1602349869071" />
-    <state width="1750" height="363" key="GridCell.Tab.4.right/0.23.1792.1097@0.23.1792.1097" timestamp="1602353279210" />
+    <state width="1750" height="363" key="GridCell.Tab.4.left/-46.-1057.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1602369527991" />
+    <state width="1750" height="363" key="GridCell.Tab.4.left/0.23.1792.1097@0.23.1792.1097" timestamp="1602364038902" />
+    <state width="1750" height="363" key="GridCell.Tab.4.right" timestamp="1602369527992">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state width="1750" height="363" key="GridCell.Tab.4.right/-46.-1057.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1602369527992" />
+    <state width="1750" height="363" key="GridCell.Tab.4.right/0.23.1792.1097@0.23.1792.1097" timestamp="1602364038903" />
     <state x="692" y="268" key="RiderGenerateDialog" timestamp="1602012422366">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
@@ -455,19 +466,24 @@
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state x="100" y="123" width="1592" height="897" key="VCS.FileHistoryDialog/0.23.1792.1097@0.23.1792.1097" timestamp="1602353556357" />
-    <state x="496" y="298" key="Vcs.Push.Dialog.v2" timestamp="1602343498088">
+    <state x="496" y="298" key="Vcs.Push.Dialog.v2" timestamp="1602362614451">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state x="496" y="298" key="Vcs.Push.Dialog.v2/-46.-1057.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1602254705056" />
-    <state x="496" y="298" key="Vcs.Push.Dialog.v2/0.23.1792.1097@0.23.1792.1097" timestamp="1602343498088" />
+    <state x="496" y="298" key="Vcs.Push.Dialog.v2/0.23.1792.1097@0.23.1792.1097" timestamp="1602362614451" />
     <state width="896" height="548" key="XDebugger.FullValuePopup" timestamp="1602177900515">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state width="896" height="548" key="XDebugger.FullValuePopup/0.23.1792.1097@0.23.1792.1097" timestamp="1602177900515" />
-    <state x="542" y="194" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1602344282952">
+    <state x="542" y="194" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1602368113029">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
+    <state x="542" y="194" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/-46.-1057.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1602368113029" />
     <state x="542" y="194" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.23.1792.1097@0.23.1792.1097" timestamp="1602344282952" />
+    <state x="560" y="265" key="run.anything.popup" timestamp="1602425572560">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state x="560" y="265" key="run.anything.popup/0.23.1792.1097@0.23.1792.1097" timestamp="1602425572560" />
     <state x="559" y="266" width="672" height="678" key="search.everywhere.popup" timestamp="1602341765045">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
@@ -482,10 +498,10 @@
           <line>177</line>
           <properties documentPath="$PROJECT_DIR$/Binding.Test/Services/PageService/CreateAsync.cs" initialLine="171">
             <startOffsets>
-              <option value="5391" />
+              <option value="5309" />
             </startOffsets>
             <endOffsets>
-              <option value="5392" />
+              <option value="5310" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="2" />
@@ -508,10 +524,10 @@
           <line>80</line>
           <properties documentPath="$PROJECT_DIR$/Binding.Web/Services/BlockService.cs" initialLine="76">
             <startOffsets>
-              <option value="2258" />
+              <option value="2281" />
             </startOffsets>
             <endOffsets>
-              <option value="2316" />
+              <option value="2339" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="7" />
@@ -521,26 +537,13 @@
           <line>136</line>
           <properties documentPath="$PROJECT_DIR$/Binding.Web/Services/PageService.cs" initialLine="104">
             <startOffsets>
-              <option value="4691" />
+              <option value="4728" />
             </startOffsets>
             <endOffsets>
-              <option value="4706" />
+              <option value="4743" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Binding.Web/Services/UserService.cs</url>
-          <line>115</line>
-          <properties documentPath="$PROJECT_DIR$/Binding.Web/Services/UserService.cs" initialLine="70">
-            <startOffsets>
-              <option value="4355" />
-            </startOffsets>
-            <endOffsets>
-              <option value="4372" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Binding.Test/Services/PageService/GetAsync.cs</url>
@@ -557,18 +560,31 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Binding.Web/Services/PageService.cs</url>
-          <line>117</line>
+          <line>122</line>
           <properties documentPath="$PROJECT_DIR$/Binding.Web/Services/PageService.cs" initialLine="101">
             <startOffsets>
-              <option value="3870" />
-              <option value="3917" />
+              <option value="4021" />
+              <option value="4068" />
             </startOffsets>
             <endOffsets>
-              <option value="4464" />
-              <option value="4425" />
+              <option value="4615" />
+              <option value="4576" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Binding.Test/Services/BlockService/CreateAsync.cs</url>
+          <line>94</line>
+          <properties documentPath="$PROJECT_DIR$/Binding.Test/Services/BlockService/CreateAsync.cs" initialLine="94">
+            <startOffsets>
+              <option value="3013" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3055" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="22" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

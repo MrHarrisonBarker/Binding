@@ -1,0 +1,12 @@
+<div [ngClass]="Page.Top ? 'topLevelPage' : 'page'" class="sidePage">
+  <div class="d-flex justify-content-between">
+    <div (click)="SelectPage()">{{Page.Name}}</div>
+<!--    <div class="d-flex flex-row">-->
+<!--      <div>{{Page.Created | date}}</div>-->
+<!--      <div>{{Page.Updated | date}}</div>-->
+<!--    </div>-->
+  </div>
+  <div>
+    <Side-Page *ngFor="let page of Page.Children | order:'Order'" [Page]="page"></Side-Page>
+  </div>
+</div>

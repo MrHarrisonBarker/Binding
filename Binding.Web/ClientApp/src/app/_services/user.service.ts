@@ -23,15 +23,14 @@ export class UserService
     this.BaseUrl = baseUrl;
   }
 
-  public Authenticate (email: string, password: string) : Observable<UserViewModel>
+  public Authenticate (email: string, password: string): Observable<UserViewModel>
   {
     let auth = {
       Email: email,
       Password: password
     }
 
-    automapper.createMap('PageWithNoBlocksViewModel','Page');
-
+    automapper.createMap('PageWithNoBlocksViewModel', 'Page');
 
 
     return this.http.post<UserViewModel>(this.BaseUrl + 'api/user/authenticate', auth).pipe(map(user =>
@@ -47,17 +46,31 @@ export class UserService
         Token: user.Token,
       };
 
-      this.pageService.Pages = user.Pages.map(page => {
-        let p : Page = {
+      this.pageService.Pages = user.Pages.map(page =>
+      {
+        let p: Page = {
           Id: page.Id,
           Name: page.Name,
           Order: page.Order,
           Created: page.Created,
           Updated: page.Updated,
-          Children: automapper.map('PageWithNoBlocksViewModel','Page',page.Children),
-          Owner: user
+          Children: automapper.map('PageWithNoBlocksViewModel', 'Page', page.Children),
+          Owner: user,
+          Top: true,
+          Blocks: []
         }
         return p;
+      }).sort((a, b) =>
+      {
+        if (a.Order < b.Order)
+        {
+          return -1;
+        }
+        if (b.Order > a.Order)
+        {
+          return 1;
+        }
+        return 0;
       });
 
       console.log("Pages -> ", this.pageService.Pages);

@@ -8,10 +8,11 @@ export interface Page
   Created : Date;
   Updated : Date;
   Order : number;
-  Owner : User;
+  Owner? : User;
   Blocks? : Block[];
   Children? : Page[];
   Parent? : Page;
+  Top?: boolean;
 }
 
 export interface  PageWithNoBlocksViewModel

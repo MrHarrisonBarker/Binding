@@ -79,6 +79,7 @@
           <e p="node_modules/@angular/router" t="IncludeRecursive" />
           <e p="node_modules/@angular-devkit/architect" t="IncludeRecursive" />
           <e p="node_modules/@angular-devkit/build-angular" t="IncludeRecursive" />
+          <e p="node_modules/@angular-devkit/build-ng-packagr" t="IncludeRecursive" />
           <e p="node_modules/@angular-devkit/build-optimizer" t="IncludeRecursive" />
           <e p="node_modules/@angular-devkit/build-webpack" t="IncludeRecursive" />
           <e p="node_modules/@angular-devkit/core" t="IncludeRecursive" />
@@ -95,6 +96,7 @@
           </e>
           <e p="node_modules/acorn" t="IncludeRecursive" />
           <e p="node_modules/ajv" t="IncludeRecursive" />
+          <e p="node_modules/angular-ng-autocomplete" t="IncludeRecursive" />
           <e p="node_modules/ansi-colors" t="IncludeRecursive" />
           <e p="node_modules/arg" t="IncludeRecursive" />
           <e p="node_modules/aspnet-prerendering" t="IncludeRecursive" />
@@ -110,8 +112,12 @@
           <e p="node_modules/domain-task" t="IncludeRecursive" />
           <e p="node_modules/domino" t="IncludeRecursive" />
           <e p="node_modules/es6-promise" t="IncludeRecursive" />
+          <e p="node_modules/estree-walker" t="IncludeRecursive" />
           <e p="node_modules/fast-deep-equal" t="IncludeRecursive" />
           <e p="node_modules/fast-json-stable-stringify" t="IncludeRecursive" />
+          <e p="node_modules/hash.js" t="IncludeRecursive" />
+          <e p="node_modules/injection-js" t="IncludeRecursive" />
+          <e p="node_modules/is-reference" t="IncludeRecursive" />
           <e p="node_modules/jasmine-core" t="IncludeRecursive" />
           <e p="node_modules/jasmine-spec-reporter" t="IncludeRecursive" />
           <e p="node_modules/jest-worker" t="IncludeRecursive" />
@@ -124,6 +130,7 @@
           <e p="node_modules/license-webpack-plugin" t="IncludeRecursive" />
           <e p="node_modules/magic-string" t="IncludeRecursive" />
           <e p="node_modules/make-error" t="IncludeRecursive" />
+          <e p="node_modules/ng-packagr" t="IncludeRecursive" />
           <e p="node_modules/ngx-loading-bar" t="IncludeRecursive" />
           <e p="node_modules/node-sass" t="IncludeRecursive" />
           <e p="node_modules/oidc-client" t="IncludeRecursive" />
@@ -135,6 +142,8 @@
           <e p="node_modules/promise" t="IncludeRecursive" />
           <e p="node_modules/protractor" t="IncludeRecursive" />
           <e p="node_modules/reflect-metadata" t="IncludeRecursive" />
+          <e p="node_modules/rollup" t="IncludeRecursive" />
+          <e p="node_modules/rollup-pluginutils" t="IncludeRecursive" />
           <e p="node_modules/rxjs" t="IncludeRecursive" />
           <e p="node_modules/semver-dsl" t="IncludeRecursive" />
           <e p="node_modules/source-map" t="IncludeRecursive" />
@@ -143,6 +152,7 @@
           <e p="node_modules/terser" t="IncludeRecursive" />
           <e p="node_modules/tree-kill" t="IncludeRecursive" />
           <e p="node_modules/ts-node" t="IncludeRecursive" />
+          <e p="node_modules/tsickle" t="IncludeRecursive" />
           <e p="node_modules/tslib" t="IncludeRecursive" />
           <e p="node_modules/tslint" t="IncludeRecursive" />
           <e p="node_modules/tsutils" t="IncludeRecursive" />
@@ -203,6 +213,23 @@
           <e p="node_modules/zone.js" t="IncludeRecursive" />
           <e p="package-lock.json" t="Include" />
           <e p="package.json" t="Include" />
+          <e p="projects" t="Include">
+            <e p="building-blocks" t="Include">
+              <e p="karma.conf.js" t="Include" />
+              <e p="README.md" t="Include" />
+              <e p="src" t="Include">
+                <e p="lib" t="Include">
+                  <e p="building-blocks.component.spec.ts" t="Include" />
+                  <e p="building-blocks.component.ts" t="Include" />
+                  <e p="building-blocks.module.ts" t="Include" />
+                  <e p="building-blocks.service.spec.ts" t="Include" />
+                  <e p="building-blocks.service.ts" t="Include" />
+                </e>
+                <e p="public-api.ts" t="Include" />
+                <e p="test.ts" t="Include" />
+              </e>
+            </e>
+          </e>
           <e p="README.md" t="Include" />
           <e p="src" t="Include">
             <e p="app" t="Include">
@@ -217,6 +244,8 @@
                 <e p="User.ts" t="Include" />
               </e>
               <e p="_services" t="Include">
+                <e p="block.service.spec.ts" t="Include" />
+                <e p="block.service.ts" t="Include" />
                 <e p="page.service.spec.ts" t="Include" />
                 <e p="page.service.ts" t="Include" />
                 <e p="user.service.spec.ts" t="Include" />
@@ -233,6 +262,8 @@
                 <e p="block.component.spec.ts" t="Include" />
                 <e p="block.component.ts" t="Include" />
               </e>
+              <e p="enum-to-array.pipe.spec.ts" t="Include" />
+              <e p="enum-to-array.pipe.ts" t="Include" />
               <e p="home" t="Include">
                 <e p="home.component.html" t="Include" />
                 <e p="home.component.ts" t="Include" />
@@ -257,11 +288,11 @@
                 <e p="page.component.ts" t="Include" />
               </e>
               <e p="side-bar" t="Include">
-                <e p="child" t="Include">
-                  <e p="child.component.css" t="Include" />
-                  <e p="child.component.html" t="Include" />
-                  <e p="child.component.spec.ts" t="Include" />
-                  <e p="child.component.ts" t="Include" />
+                <e p="page" t="Include">
+                  <e p="page.component.css" t="Include" />
+                  <e p="page.component.html" t="Include" />
+                  <e p="page.component.spec.ts" t="Include" />
+                  <e p="page.component.ts" t="Include" />
                 </e>
                 <e p="side-bar.component.css" t="Include" />
                 <e p="side-bar.component.html" t="Include" />

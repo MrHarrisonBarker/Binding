@@ -13,21 +13,24 @@ import {SideBarComponent} from './side-bar/side-bar.component';
 import {LoginComponent} from './login/login.component';
 import {AuthGuard} from "./_guards/auth.guard";
 import {LoadingBarModule} from "ngx-loading-bar";
-import { ChildComponent } from './side-bar/child/child.component';
 import { OrderPipe } from './order.pipe';
+import {SidePageComponent} from "./side-bar/page/page.component";
+import {AutocompleteLibModule} from "angular-ng-autocomplete";
+import { EnumToArrayPipe } from './enum-to-array.pipe';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavMenuComponent,
-    HomeComponent,
-    PageComponent,
-    BlockComponent,
-    SideBarComponent,
-    LoginComponent,
-    ChildComponent,
-    OrderPipe
-  ],
+    declarations: [
+        AppComponent,
+        NavMenuComponent,
+        HomeComponent,
+        PageComponent,
+        BlockComponent,
+        SideBarComponent,
+        LoginComponent,
+        OrderPipe,
+        SidePageComponent,
+        EnumToArrayPipe
+    ],
   imports: [
     BrowserModule.withServerTransition({appId: 'ng-cli-universal'}),
     HttpClientModule,
@@ -36,7 +39,8 @@ import { OrderPipe } from './order.pipe';
       {path: '', component: LoginComponent, pathMatch: 'full'},
       {path: 'home', component: HomeComponent, canActivate: [AuthGuard]}
     ]),
-    LoadingBarModule
+    LoadingBarModule,
+    AutocompleteLibModule
   ],
   providers: [],
   bootstrap: [AppComponent]
