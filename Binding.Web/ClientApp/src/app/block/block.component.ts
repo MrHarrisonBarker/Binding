@@ -10,6 +10,8 @@ export class BlockComponent implements OnInit
 {
 
   @Input() Block: Block
+  EditMode: boolean = false;
+  Hover: boolean = false;
 
   constructor ()
   {

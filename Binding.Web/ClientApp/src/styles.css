@@ -14,3 +14,33 @@ code {
   background-color: #1b6ec2;
   border-color: #1861ac;
 }
+
+html, body {
+  height: 100%;
+  color: rgb(55, 53, 47);
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+
+.Text {
+  font-size: 16px;
+}
+
+.Heading {
+  font-size: 30px;
+}
+
+.SubHeading {
+  font-size: 20px;
+}
+
+.Code {
+  font-size: 13.6px;
+  background-color: #282a36;
+  padding: 2rem 1rem;
+  color: #f8f8f2;
+}

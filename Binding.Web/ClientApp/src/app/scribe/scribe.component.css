@@ -1,0 +1,35 @@
+#textInput {
+  /*width: 100px;*/
+  width: 100%;
+  white-space: pre-wrap;
+  overflow: hidden;
+  /*overflow:auto;*/
+  /*white-space: nowrap;*/
+  word-break: break-word;
+  padding: 3px 2px;
+  min-height: 1em;
+  color: rgb(55, 53, 47);
+  outline: 0;
+}
+
+#AutoComplete {
+  position: absolute;
+  bottom: 60px;
+  background-color: white;
+  width: 100%;
+  max-height: 300px;
+  overflow: auto;
+}
+
+.autoItem {
+  padding: 0.5rem 0.5rem;
+  cursor: pointer;
+}
+
+.autoItem:hover {
+  background: aliceblue;
+}
+
+.selectedType {
+  background-color: palevioletred;
+}

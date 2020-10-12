@@ -61,11 +61,27 @@ namespace Binding.Controllers
             {
                 return Ok(true);
             }
-            else
-            {
-                return BadRequest(false);
-            }
+
+            return BadRequest(false);
         }
+
+        [HttpPut("reorder")]
+        public async Task<ActionResult<bool>> ReOrder([FromBody] SwapBlock swapBlock)
+        {
+            var hasSwapped = await _blockService.ReOrderAsync(swapBlock.SwapThis, swapBlock.ForThat);
+            if (hasSwapped)
+            {
+                return Ok(true);
+            }
+
+            return BadRequest(false);
+        }
+    }
+
+    public class SwapBlock
+    {
+        public Guid SwapThis { get; set; }
+        public Guid ForThat { get; set; }
     }
 
     public class DeleteBlock

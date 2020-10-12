@@ -101,13 +101,15 @@ namespace Binding.Test.Seeds
                     {
                         Id = Guid.Parse("A13E6844-84C1-44AD-8C29-B60CC542934D"),
                         Type = BlockType.Heading,
-                        Content = "Hello world"
+                        Content = "Hello world",
+                        Order = 0
                     },
                     new Block
                     {
                         Id = Guid.Parse("D9E10FFE-1022-48F1-8593-9F1B29A97C33"),
                         Type = BlockType.Text,
-                        Content = "Hello world but as text"
+                        Content = "Hello world but as text",
+                        Order = 1
                     }
                 }
             };

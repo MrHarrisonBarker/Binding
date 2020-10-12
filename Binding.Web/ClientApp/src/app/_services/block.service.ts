@@ -21,20 +21,23 @@ export class BlockService
     this.BaseUrl = baseUrl;
   }
 
-  public CreateBlock (block: Block, page: Page): Observable<Block>
+  public Create (block: Block, page: Page): Observable<Block>
   {
-    return this.http.post<Block>(this.BaseUrl + 'api/block',{
+    return this.http.post<Block>(this.BaseUrl + 'api/block', {
       Block: block,
       PageId: page.Id
-    }).pipe(map(block => {
+    }).pipe(map(block =>
+    {
 
-      if (block){
+      if (block)
+      {
 
-        console.log("Created block",block);
+        console.log("Created block", block);
 
         // this.pageService.Pages[this.pageService.Pages.findIndex(x => x.Id == pageId)].Blocks.push(block);
 
-        if (page.Blocks == null) {
+        if (page.Blocks == null)
+        {
           page.Blocks = [];
         }
         page.Blocks.push(block);
@@ -42,7 +45,8 @@ export class BlockService
         let result: boolean = false;
         for (let i = 0; !result && i < this.pageService.Pages.length; i++)
         {
-          if (this.buildingBlocks.updateTree(this.pageService.Pages[i], page.Id, page)) {
+          if (this.buildingBlocks.updateTree(this.pageService.Pages[i], page.Id, page))
+          {
             console.log("Updated node");
             result = true;
           }
@@ -54,8 +58,40 @@ export class BlockService
     }));
   }
 
-  public UpdateBlock ()
+  public Update ()
   {
 
   }
+
+  public ReOrder (swapThis: string, forThat: string, page: Page): Observable<boolean>
+  {
+    return this.http.put<boolean>(this.BaseUrl + 'api/block/reorder', {
+      SwapThis: swapThis,
+      ForThat: forThat
+    }).pipe(map(reOrdered =>
+    {
+
+      console.log("reordered", swapThis, forThat);
+
+      let swapIndex = page.Blocks.findIndex(x => x.Id == swapThis);
+      let thatIndex = page.Blocks.findIndex(x => x.Id == forThat);
+
+      let swap: Block = page.Blocks[swapIndex];
+      page.Blocks[swapIndex] = page.Blocks[thatIndex];
+      page.Blocks[thatIndex] = swap;
+
+      // let result: boolean = false;
+      // for (let i = 0; !result && i < this.pageService.Pages.length; i++)
+      // {
+      //   if (this.buildingBlocks.updateTree(this.pageService.Pages[i], page.Id, page))
+      //   {
+      //     console.log("Updated node");
+      //     result = true;
+      //   }
+      // }
+
+      return reOrdered;
+    }));
+  }
+
 }

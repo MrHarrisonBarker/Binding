@@ -17,6 +17,10 @@ import { OrderPipe } from './order.pipe';
 import {SidePageComponent} from "./side-bar/page/page.component";
 import {AutocompleteLibModule} from "angular-ng-autocomplete";
 import { EnumToArrayPipe } from './enum-to-array.pipe';
+import {DragDropModule} from "@angular/cdk/drag-drop";
+import {MatIconModule} from "@angular/material/icon";
+import { ScribeComponent } from './scribe/scribe.component';
+import {MatAutocompleteModule} from "@angular/material/autocomplete";
 
 @NgModule({
     declarations: [
@@ -29,7 +33,8 @@ import { EnumToArrayPipe } from './enum-to-array.pipe';
         LoginComponent,
         OrderPipe,
         SidePageComponent,
-        EnumToArrayPipe
+        EnumToArrayPipe,
+        ScribeComponent
     ],
   imports: [
     BrowserModule.withServerTransition({appId: 'ng-cli-universal'}),
@@ -40,7 +45,10 @@ import { EnumToArrayPipe } from './enum-to-array.pipe';
       {path: 'home', component: HomeComponent, canActivate: [AuthGuard]}
     ]),
     LoadingBarModule,
-    AutocompleteLibModule
+    AutocompleteLibModule,
+    DragDropModule,
+    MatIconModule,
+    MatAutocompleteModule
   ],
   providers: [],
   bootstrap: [AppComponent]

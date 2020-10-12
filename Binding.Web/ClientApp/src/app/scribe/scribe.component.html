@@ -1,0 +1,12 @@
+<div [(ngModel)]="ContentInput" #blockContentInput contenteditable="true" spellcheck="true" id="textInput"
+     (focusout)="SendBlock($event,blockContentInput.innerText)"
+     (keyup.enter)="Enter($event,blockContentInput.innerText);"
+     (keyup.backspace)="Backspace($event,blockContentInput.innerText)"
+     (keypress)="SearchTypes($event,blockContentInput.innerText)">
+</div>
+<div id="Autocomplete" *ngIf="!EditMode">
+  <div id="types">
+    <div [class.selectedType]="type == SelectedType" class="autoItem" *ngFor="let type of SearchedTypes">{{type}}</div>
+  </div>
+</div>
+<div *ngIf="EditMode">Edit mode Enabled -> {{SelectedType}}</div><!--<mat-autocomplete>--><!--  <mat-option *ngFor="let type of Types | enumToArray" >{{type.name}}</mat-option>--><!--</mat-autocomplete>-->

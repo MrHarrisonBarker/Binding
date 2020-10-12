@@ -3,6 +3,7 @@ import {Page} from "../_models/Page";
 import {BlockType} from "../_models/BlockType";
 import {BlockService} from "../_services/block.service";
 import {Block} from "../_models/Block";
+import {CdkDragDrop} from "@angular/cdk/drag-drop";
 
 @Component({
   selector: 'page',
@@ -29,15 +30,14 @@ export class PageComponent implements OnInit
     return $event.which != 13;
   }
 
-  SendBlock (blockContentInput: string, blockTypeInput: string)
+  drop (event: CdkDragDrop<any>)
   {
-    console.log("Sending block",blockContentInput,blockTypeInput);
-
-    let block: Block = {
-      Type: BlockType[blockTypeInput],
-      Content: blockContentInput
-    };
-
-    this.blockService.CreateBlock(block,this.Page).subscribe();
+    // console.log(event, this.Page.Blocks[event.previousIndex].Content, this.Page.Blocks[event.currentIndex].Content);
+    if (event.previousIndex != event.currentIndex) {
+      this.blockService.ReOrder(this.Page.Blocks[event.previousIndex].Id, this.Page.Blocks[event.currentIndex].Id, this.Page).subscribe(reOrdered =>
+      {
+        console.log("reordered?");
+      });
+    }
   }
 }

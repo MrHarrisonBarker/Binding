@@ -28,6 +28,7 @@
             <e p="CreateAsync.cs" t="Include" />
             <e p="DeleteAsync.cs" t="Include" />
             <e p="GetAsync.cs" t="Include" />
+            <e p="ReOrderAsync.cs" t="Include" />
             <e p="UpdateAsync.cs" t="Include" />
           </e>
           <e p="PageService" t="Include">
@@ -67,12 +68,14 @@
             <e p="tsconfig.e2e.json" t="Include" />
           </e>
           <e p="node_modules/@angular/animations" t="IncludeRecursive" />
+          <e p="node_modules/@angular/cdk" t="IncludeRecursive" />
           <e p="node_modules/@angular/cli" t="IncludeRecursive" />
           <e p="node_modules/@angular/common" t="IncludeRecursive" />
           <e p="node_modules/@angular/compiler" t="IncludeRecursive" />
           <e p="node_modules/@angular/compiler-cli" t="IncludeRecursive" />
           <e p="node_modules/@angular/core" t="IncludeRecursive" />
           <e p="node_modules/@angular/forms" t="IncludeRecursive" />
+          <e p="node_modules/@angular/material" t="IncludeRecursive" />
           <e p="node_modules/@angular/platform-browser" t="IncludeRecursive" />
           <e p="node_modules/@angular/platform-browser-dynamic" t="IncludeRecursive" />
           <e p="node_modules/@angular/platform-server" t="IncludeRecursive" />
@@ -115,6 +118,7 @@
           <e p="node_modules/estree-walker" t="IncludeRecursive" />
           <e p="node_modules/fast-deep-equal" t="IncludeRecursive" />
           <e p="node_modules/fast-json-stable-stringify" t="IncludeRecursive" />
+          <e p="node_modules/hammerjs" t="IncludeRecursive" />
           <e p="node_modules/hash.js" t="IncludeRecursive" />
           <e p="node_modules/injection-js" t="IncludeRecursive" />
           <e p="node_modules/is-reference" t="IncludeRecursive" />
@@ -286,6 +290,12 @@
                 <e p="page.component.html" t="Include" />
                 <e p="page.component.spec.ts" t="Include" />
                 <e p="page.component.ts" t="Include" />
+              </e>
+              <e p="scribe" t="Include">
+                <e p="scribe.component.css" t="Include" />
+                <e p="scribe.component.html" t="Include" />
+                <e p="scribe.component.spec.ts" t="Include" />
+                <e p="scribe.component.ts" t="Include" />
               </e>
               <e p="side-bar" t="Include">
                 <e p="page" t="Include">

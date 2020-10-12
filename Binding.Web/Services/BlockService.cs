@@ -13,6 +13,7 @@ namespace Binding.Services
         Task<Block> GetAsync(Guid id);
         Task<Block> UpdateAsync(Block block);
         Task<bool> DeleteAsync(Guid id);
+        Task<bool> ReOrderAsync(Guid swapThis, Guid forThat);
     }
 
     public class BlockService : IBlockService
@@ -118,6 +119,33 @@ namespace Binding.Services
             {
                 page.Blocks.Remove(block);
                 _bindingContext.Blocks.Remove(block);
+                await _bindingContext.SaveChangesAsync();
+                return true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
+
+        public async Task<bool> ReOrderAsync(Guid swapThis, Guid forThat)
+        {
+            // TODO: change to single db call?
+            var swap = await _bindingContext.Blocks.FirstOrDefaultAsync(x => x.Id == swapThis);
+            var that = await _bindingContext.Blocks.FirstOrDefaultAsync(x => x.Id == forThat);
+
+            if (swap == null || that == null)
+            {
+                throw new Exception("All block not found");
+            }
+
+            try
+            {
+                var swapOrder = swap.Order;
+                swap.Order = that.Order;
+                that.Order = swapOrder;
+
                 await _bindingContext.SaveChangesAsync();
                 return true;
             }

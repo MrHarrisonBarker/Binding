@@ -1,20 +1,9 @@
 #page {
-  background-color: palevioletred;
+  /*background-color: palevioletred;*/
+  overflow: hidden;
 }
 
-#textInput {
-  /*width: 100px;*/
-  width: 100%;
-  white-space: pre-wrap;
-  overflow: hidden;
-  /*overflow:auto;*/
-  /*white-space: nowrap;*/
-  word-break: break-word;
-  padding: 3px 2px;
-  min-height: 1em;
-  color: rgb(55, 53, 47);
-  outline: 0;
-}
+
 
 /*#textInput.single-line br {*/
 /*  display:none;*/
@@ -42,3 +31,50 @@
 /*  display:inline;*/
 /*  white-space:nowrap;*/
 /*}*/
+
+
+.cdk-drag-preview {
+  box-sizing: border-box;
+  border-radius: 4px;
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+  0 8px 10px 1px rgba(0, 0, 0, 0.14),
+  0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.cdk-drag-animating {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+
+}
+
+block {
+  /*padding: 20px 10px;*/
+  /*border-bottom: solid 1px #ccc;*/
+  /*color: rgba(0, 0, 0, 0.87);*/
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  /*cursor: move;*/
+  background: white;
+  /*font-size: 14px;*/
+}
+
+.block {
+  display: flex;
+  flex-direction: row;
+}
+
+.handle {
+  opacity: 0;
+  /*background-color: #e01a76;*/
+  /*width: 20px;*/
+  /*height: 20px;*/
+  cursor: move;
+  transition: opacity ease-in-out 100ms;
+}
+
+.handle:hover {
+  opacity: 75%;
+}
+

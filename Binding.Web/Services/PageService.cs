@@ -15,6 +15,7 @@ namespace Binding.Services
         Task<PageWithBlocksViewModel> GetAsync(Guid id);
         Task<Page> UpdateAsync(Page page);
         Task<bool> DeleteAsync(Guid id);
+        Task<bool> ReOrderAsync(Guid swapThis, Guid forThat);
     }
 
     public class PageService : IPageService
@@ -191,6 +192,11 @@ namespace Binding.Services
                 Console.WriteLine(e);
                 throw;
             }
+        }
+
+        public Task<bool> ReOrderAsync(Guid swapThis, Guid forThat)
+        {
+            throw new NotImplementedException();
         }
     }
 }
